@@ -1,0 +1,56 @@
+grammar Search
+  rule root
+    space* expressions space* {
+      def value
+        elements[1].value
+      end
+    }
+  end
+
+  rule expressions
+    ((quoted_value / param / bare_value) space*)* {
+      def value
+        elements.map{|e| e.elements[0].value.merge({ raw: e.elements[0].text_value }) }
+      end
+    }
+  end
+
+  rule space
+    [ \t]+
+  end
+
+  rule quoted_value
+    ('"' (!'"' .)* '"' / '\'' (!'\'' .)* '\'') {
+      def value
+        {
+          type: :quoted,
+          value: elements[1].text_value
+        }
+      end
+    }
+  end
+
+  rule bare_value
+    (!space .)+ '' {
+      def value
+        {
+          type: :bare,
+          value: elements[0].text_value
+        }
+      end
+    }
+  end
+
+  rule param
+    (!(space / ":") .)+ ":" (quoted_value / bare_value) {
+      def value
+        {
+          type: :param,
+          name: elements[0].text_value,
+          value: elements[2].value[:value]
+        }
+      end
+    }
+  end
+
+end
