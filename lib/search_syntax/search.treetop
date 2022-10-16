@@ -20,11 +20,12 @@ grammar Search
   end
 
   rule quoted_value
-    ('"' (!'"' .)* '"' / '\'' (!'\'' .)* '\'') {
+    ('"' ('\"' / !'"' .)* '"' / '\'' ('\\\'' / !'\'' .)* '\'') {
       def value
+        quote = elements[0].text_value
         {
           type: :quoted,
-          value: elements[1].text_value
+          value: elements[1].text_value.gsub("\\#{quote}", quote)
         }
       end
     }
@@ -41,14 +42,23 @@ grammar Search
     }
   end
 
+  rule predicate
+    ">=" / "<=" / "=>" / "=<" / "!=" / ">" / "<"
+  end
+
   rule param
-    (!(space / ":") .)+ ":" (quoted_value / bare_value) {
+    (!(space / ":") .)+ ":" predicate? (quoted_value / bare_value) {
       def value
-        {
+        result = {
           type: :param,
           name: elements[0].text_value,
-          value: elements[2].value[:value]
+          value: elements[3].value[:value]
         }
+        predicate = elements[2].text_value
+        if predicate != ""
+          result[:predicate] = predicate.to_sym
+        end
+        result
       end
     }
   end

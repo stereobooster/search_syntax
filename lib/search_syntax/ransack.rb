@@ -2,6 +2,19 @@
 
 module SearchSyntax
   class Ransack
+    PREDICATES = {
+      ">=": :gteq,
+      "=>": :gteq,
+      "<=": :lteq,
+      "=<": :lteq,
+      "!=": :not_eq,
+      ">": :gt,
+      "<": :lt
+      # in, not_in, present, blank, null, not_null,
+      # matches, does not match, cont, cont_any, cont_all,
+      # i_cont..., start, end, true, false, not_true, not_false
+    }
+
     # text - symbol or TODO: callback
     # params - array of symbols or TODO: callback
     def initialize(text:, params:)
@@ -15,8 +28,8 @@ module SearchSyntax
       if @params.is_a?(Array)
         ast = ast.filter do |node|
           if node[:type] == :param && @params.include?(node[:name])
-            predicate, value = Ransack.detect_predicate(node[:value])
-            result["#{node[:name]}#{predicate}".to_sym] = value
+            predicate = PREDICATES[node[:predicate]] || :eq
+            result["#{node[:name]}_#{predicate}".to_sym] = node[:value]
             false
           else
             true
@@ -26,27 +39,6 @@ module SearchSyntax
 
       result[@text] = ast.map { |node| node[:raw] }.join(" ")
       result
-    end
-
-    # shall it be in the parser?
-    # Other predicates: in, not_in,
-    # matches, does not match, cont, cont_any, cont_all
-    # i_cont..., start, end, true, false, not_true, not_false
-    # present, blank, null, not_null
-    def self.detect_predicate(v)
-      if v.start_with?(">=", "=>")
-        ["_gteq", v[2...v.length]]
-      elsif v.start_with?("<=", "=<")
-        ["_lteq", v[2...v.length]]
-      elsif v.start_with?(">")
-        ["_gt", v[1...v.length]]
-      elsif v.start_with?("<")
-        ["_lt", v[1...v.length]]
-      elsif v.start_with?("!=")
-        ["_not_eq", v[2...v.length]]
-      else
-        ["_eq", v]
-      end
     end
   end
 end

@@ -57,7 +57,7 @@ class TestAdvancedSearchRansack < Minitest::Test
   end
 
   def test_sort_param
-    skip
+    skip # TODO:
 
     assert_parse_transform "sort:-created_at",
       {title_cont: "", s: "created_at desc"}
@@ -88,13 +88,11 @@ class TestAdvancedSearchRansack < Minitest::Test
   end
 
   def test_issue_2
-    skip # TODO:
     assert_parse_transform 'param:">"',
       {title_cont: "", param_eq: ">"}
   end
 
   def test_issue_3
-    skip # TODO:
     assert_parse_transform 'param:>"a b"',
       {title_cont: "", param_gt: "a b"}
   end
@@ -103,7 +101,6 @@ class TestAdvancedSearchRansack < Minitest::Test
     assert_parse_transform 'param:O"neil',
       {title_cont: "", param_eq: 'O"neil'}
 
-    skip # TODO:
     assert_parse_transform 'param:"O\"neil"',
       {title_cont: "", param_eq: "O\"neil"}
   end

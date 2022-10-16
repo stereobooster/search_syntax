@@ -37,9 +37,8 @@ class TestAdvancedSearchParser < Minitest::Test
   end
 
   def test_eacape_character
-    skip "TODO: fix this"
     assert_parse "'\\''",
-      {type: :quoted, value: "\\'", raw: "'\\''"}
+      {type: :quoted, value: "'", raw: "'\\''"}
   end
 
   def test_broken_quotes
