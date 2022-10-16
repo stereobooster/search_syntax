@@ -74,6 +74,10 @@ class TestAdvancedSearchRansack < Minitest::Test
 
     assert_parse_transform "title_cont:1",
       {title_cont: "title_cont:1"}
+
+    # similar to param:1..2
+    assert_parse_transform "param:>=1 param:<=2",
+      {param_gteq: "1", param_lteq: "2", title_cont: ""}
   end
 
   def test_issue_1
