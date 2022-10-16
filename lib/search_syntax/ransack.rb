@@ -2,8 +2,8 @@
 
 module SearchSyntax
   class Ransack
-    # text - symbol or callback
-    # params - array of symbols or callback
+    # text - symbol or TODO: callback
+    # params - array of symbols or TODO: callback
     def initialize(text:, params:)
       @text = text
       @params = params

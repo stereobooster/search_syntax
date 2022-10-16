@@ -1,3 +1,12 @@
+# TODO
+
+- model language after https://docs.github.com/en/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax
+- write about alternatives
+- fix "TODO:"
+- write about different types of search
+- publish
+- share with ransack
+
 # search_syntax
 
 The main idea of the gem is to provide advanced search as seen at:
