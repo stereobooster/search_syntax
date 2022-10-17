@@ -1,11 +1,12 @@
 # TODO
 
+- comparison table of operations for es, solr, sphinx etc.
 - model language after https://docs.github.com/en/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax
-- write about alternatives
 - fix "TODO:"
 - write about different types of search
 - publish
 - share with ransack
+
 
 # search_syntax
 
@@ -23,6 +24,7 @@ Similar packages:
   - [search_cop](https://github.com/mrkamel/search_cop)
   - [easy-filter](https://github.com/Noriller/easy-filter)
   - [human-ql](https://github.com/dekellum/human-ql)
+  - [logical_query_parser](https://github.com/kanety/logical_query_parser)
 
 Package provides only parser. AST produced by parser can be converted to a specific "backend", for example:
 

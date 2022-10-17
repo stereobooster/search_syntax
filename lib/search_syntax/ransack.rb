@@ -1,6 +1,36 @@
 # frozen_string_literal: true
 
 module SearchSyntax
+  class DuplicateParamError < StandardError
+    attr_reader :name, :start, :finish
+
+    def initialize(name:, start:, finish:)
+      @name = name
+      @start = start
+      @finish = finish
+
+      super("Duplicate parameter '#{name}' at position #{start}.")
+    end
+  end
+
+  class UnknownParamError < StandardError
+    attr_reader :name, :start, :finish, :did_you_mean
+
+    def initialize(name:, start:, finish:, did_you_mean:)
+      @name = name
+      @start = start
+      @finish = finish
+      @did_you_mean = did_you_mean
+
+      message = "Unknown parameter '#{name}' at position #{start}."
+      if did_you_mean[0]
+        message += " Did you mean '#{did_you_mean[0]}'?"
+      end
+
+      super(message)
+    end
+  end
+
   class Ransack
     PREDICATES = {
       ">=": :gteq,
@@ -20,25 +50,49 @@ module SearchSyntax
     def initialize(text:, params:)
       @text = text
       @params = params
+      @spell_checker = DidYouMean::SpellChecker.new(dictionary: @params)
     end
 
-    def transform(ast)
+    def transform_with_errors(ast)
+      errors = []
       result = {}
 
       if @params.is_a?(Array)
         ast = ast.filter do |node|
-          if node[:type] == :param && @params.include?(node[:name])
+          if node[:type] != :param
+            true
+          elsif @params.include?(node[:name])
             predicate = PREDICATES[node[:predicate]] || :eq
-            result["#{node[:name]}_#{predicate}".to_sym] = node[:value]
+            key = "#{node[:name]}_#{predicate}".to_sym
+            if !result.key?(key)
+              result[key] = node[:value]
+            else
+              errors.push(DuplicateParamError.new(
+                name: node[:name],
+                start: node[:start],
+                finish: node[:finish]
+              ))
+            end
             false
           else
+            errors.push(UnknownParamError.new(
+              name: node[:name],
+              start: node[:start],
+              finish: node[:finish],
+              did_you_mean: @spell_checker.correct(node[:name])
+            ))
             true
           end
         end
       end
 
       result[@text] = ast.map { |node| node[:raw] }.join(" ")
-      result
+
+      [result, errors]
+    end
+
+    def transform(ast)
+      transform_with_errors(ast)[0]
     end
   end
 end

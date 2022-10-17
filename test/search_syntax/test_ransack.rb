@@ -12,8 +12,10 @@ class TestAdvancedSearchRansack < Minitest::Test
   #   assert_equal @transformer.transform(ast), query
   # end
 
-  def assert_parse_transform(text, query)
-    assert_equal @transformer.transform(@parser.parse(text).value), query
+  def assert_parse_transform(text, query, error = [])
+    query_res, error_res = @transformer.transform_with_errors(@parser.parse(text).value)
+    assert_equal query_res, query
+    assert_equal error_res.map(&:message), error
   end
 
   def test_text
@@ -51,9 +53,8 @@ class TestAdvancedSearchRansack < Minitest::Test
 
   def test_absent_param
     assert_parse_transform "paramx:1",
-      {title_cont: "paramx:1"}
-
-    # TODO: Unrecognized parameter "paramx" at line M, column N. Did you mean "param"?
+      {title_cont: "paramx:1"},
+      ["Unknown parameter 'paramx' at position 0. Did you mean 'param'?"]
   end
 
   def test_sort_param
@@ -68,12 +69,12 @@ class TestAdvancedSearchRansack < Minitest::Test
 
   def test_duplicate_param
     assert_parse_transform "param:1 param:2",
-      {title_cont: "", param_eq: "2"}
-
-    # TODO: duplicate parameter "param" at line M, column N
+      {title_cont: "", param_eq: "1"},
+      ["Duplicate parameter 'param' at position 8."]
 
     assert_parse_transform "title_cont:1",
-      {title_cont: "title_cont:1"}
+      {title_cont: "title_cont:1"},
+      ["Unknown parameter 'title_cont' at position 0."]
 
     # similar to param:1..2
     assert_parse_transform "param:>=1 param:<=2",

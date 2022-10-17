@@ -8,9 +8,13 @@ grammar Search
   end
 
   rule expressions
-    ((quoted_value / param / bare_value) space*)* {
+    ((quoted_value / param / bare_value) space?)* {
       def value
-        elements.map{|e| e.elements[0].value.merge({ raw: e.elements[0].text_value }) }
+        elements.map{|e| e.elements[0].value.merge({ 
+          raw: e.elements[0].text_value,
+          start: e.elements[0].interval.begin,
+          finish: e.elements[0].interval.end
+        }) }
       end
     }
   end
