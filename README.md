@@ -9,16 +9,53 @@
 
 # search_syntax
 
-The main idea of the gem is to provide advanced search as seen at:
+Parser for "advanced search" query language. Inspired by [GitHub's search syntax](https://docs.github.com/en/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax)
 
-- [Github](https://docs.github.com/en/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax)
-- Google
-- Gmail
-- etc.
+There is no wide accepted terminology for this kind of query language. Sometimes it's called:
 
-There is a gem which does something similar - `search_cop`, but I think it does way too much which makes it harder to change it's behaviour according to your needs.
+  - [query string](http://recursion.org/query-parser)
+  - [search query](https://tgvashworth.com/2016/06/27/twitter-search-query-parser.html)
+  - [advanced search query](https://github.com/mixmaxhq/search-string)
+  - [generic query](https://github.com/tomprogers/common-query-parser)
 
-This gem is much slimer. It provides only parser for "advanced search", which in turn can be connected to any DB "adapter", for example, ransack, ...
+Similar packages:
+
+  - [search_cop](https://github.com/mrkamel/search_cop)
+  - [easy-filter](https://github.com/Noriller/easy-filter)
+  - [human-ql](https://github.com/dekellum/human-ql)
+
+Package provides only parser. AST produced by parser can be converted to a specific "backend", for example:
+
+- [ransack](https://activerecord-hackery.github.io/ransack/getting-started/search-matches/)
+- [MySQL Full-Text Search](https://dev.mysql.com/doc/refman/8.0/en/fulltext-boolean.html)
+- [PostgreSQL Full-Text Search](https://www.postgresql.org/docs/current/textsearch-controls.html#TEXTSEARCH-PARSING-QUERIES)
+- [Meilisearch](https://docs.meilisearch.com/reference/api/search.html#body)
+- [Elasticsearch](https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl.html)
+- [Solr](https://solr.apache.org/guide/6_6/the-standard-query-parser.html)
+- [Lucene](https://lucene.apache.org/core/2_9_4/queryparsersyntax.html) ([Lucene vs Solr](https://www.lucenetutorial.com/lucene-vs-solr.html))
+- [Sphinx](https://sphinxsearch.com/docs/current/extended-syntax.html)
+
+Transforming AST is out of scope of this package, except for Ransack, which serves as an example of implementation.
+
+## Challenge
+
+Main challenge is to come up with query language intuitive enough that non-techy people can use, but powerfull enough to expose all advanced features.
+
+There are different types of search, they require different features:
+
+```mermaid
+graph LR
+  Search --> Parametric --> op1[param = 1, param > 2, etc.]
+  Search --> s1[Text: single term] 
+  s1 --> op2[Phonetic similarity: names, emails, words with alternate spellings, etc.]
+  s1 --> op3[Ortographic similarity: drug names, biological species, typos in proper nouns, etc.]
+  s1 --> op4[Pattern match: logs, match by part of word, etc.]
+  Search --> s2[Text: multiple terms]
+  s2 --> op5[Full-text search: text in natural language]
+  s2 --> op6[Single term search with boolean operations: AND, OR, NOT, grouping]
+```
+
+**Note**: No. Full-text search is not an universal solution for all types of text search. It is designed to search in natural language texts. But this subject deserves a separate article.
 
 ## Installation
 
