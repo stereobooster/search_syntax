@@ -15,6 +15,14 @@ Package provides only parser. AST produced by parser can be converted to a speci
 
 Transforming AST is out of scope of this package, except for Ransack, which serves as an example of implementation.
 
+## Disclaimer
+
+So far parser only supports bare strings, **quoted strings** (`"some string"`) and parameters (`param:1`).
+
+Parser **doesn't** support negation (`not`/`-`), boolean operations (`and`/`&`/`or`/`|`) and groupping (`(a | b)`).
+
+This probably will change as soon as I understand how to add those "advanced" features without making it less user-friendly to non-techy people. See "Challenge" section for explantions.
+
 ## Challenge
 
 Main challenge is to come up with query language intuitive enough that non-techy people can use, but powerfull enough to expose all advanced features.
@@ -38,14 +46,6 @@ graph LR
 **Parametric search** aka faceted search - [filter by strctured data](https://en.wikipedia.org/wiki/Faceted_search).
 
 **Aproximate search** aka fuzzy search aka approximate string matching - [is the technique of finding strings that match a pattern approximately (rather than exactly)](https://en.wikipedia.org/wiki/Approximate_string_matching).
-
-## Disclaimer
-
-So far parser only supports bare strings, **quoted strings** (`"some string"`) and parameters (`param:1`).
-
-Parser **doesn't** support negation (`not`/`-`), boolean operations (`and`/`&`/`or`/`|`) and groupping (`(a | b)`).
-
-This probably will change as soon as I understand how to add those "advanced" features without making it less user-friendly to non-techy people.
 
 ## Installation
 
