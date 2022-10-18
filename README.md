@@ -1,6 +1,6 @@
 # TODO
 
-- write disclaimer and usage intructions
+- write usage intructions
 - publish
 - share with ransack
 
@@ -54,6 +54,18 @@ graph LR
 ```
 
 **Note**: No. Full-text search is not an universal solution for all types of text search. It is designed to search in natural language texts. But this subject deserves a separate article.
+
+**Parametric search** aka faceted search - [filter by strctured data](https://en.wikipedia.org/wiki/Faceted_search).
+
+**Aproximate search** aka fuzzy search aka approximate string matching - [is the technique of finding strings that match a pattern approximately (rather than exactly)](https://en.wikipedia.org/wiki/Approximate_string_matching).
+
+## Disclaimer
+
+So far parser only supports bare strings, **quoted strings** (`"some string"`) and parameters (`param:1`).
+
+It **doesn't** support negation (`not`/`-`), boolean operations (`and`/`&`/`or`/`|`) and groupping (`(a | b)`).
+
+This probably will change as soon as I understand how to add those "advanced" features without making it less user-friendly to non-techy people.
 
 ## Installation
 
