@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
-require "treetop"
-Treetop.load "#{__dir__}/search"
+require "treetop/runtime"
+require_relative "search_syntax_grammar"
 
 module SearchSyntax
-  class Parser < ::SearchParser
+  class Parser < ::SearchSyntaxGrammarParser
   end
 end

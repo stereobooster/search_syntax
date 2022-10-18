@@ -1,4 +1,4 @@
-grammar Search
+grammar SearchSyntaxGrammar
   rule root
     space* expressions space* {
       def value
