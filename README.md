@@ -1,6 +1,7 @@
 # TODO
 
 - write usage intructions
+- check if array works for sort
 - publish
 - share with ransack
 
@@ -63,7 +64,7 @@ graph LR
 
 So far parser only supports bare strings, **quoted strings** (`"some string"`) and parameters (`param:1`).
 
-It **doesn't** support negation (`not`/`-`), boolean operations (`and`/`&`/`or`/`|`) and groupping (`(a | b)`).
+Parser **doesn't** support negation (`not`/`-`), boolean operations (`and`/`&`/`or`/`|`) and groupping (`(a | b)`).
 
 This probably will change as soon as I understand how to add those "advanced" features without making it less user-friendly to non-techy people.
 
