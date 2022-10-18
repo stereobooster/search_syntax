@@ -4,13 +4,9 @@ require "test_helper"
 
 class TestAdvancedSearchRansack < Minitest::Test
   def setup
-    @transformer = SearchSyntax::Ransack.new(text: :title_cont, params: ["param"])
+    @transformer = SearchSyntax::Ransack.new(text: :title_cont, params: ["param"], sort: "sort")
     @parser = SearchSyntax::Parser.new
   end
-
-  # def assert_transform(ast, query)
-  #   assert_equal @transformer.transform(ast), query
-  # end
 
   def assert_parse_transform(text, query, error = [])
     query_res, error_res = @transformer.transform_with_errors(@parser.parse(text).value)
@@ -58,10 +54,8 @@ class TestAdvancedSearchRansack < Minitest::Test
   end
 
   def test_sort_param
-    skip # TODO:
-
     assert_parse_transform "sort:-created_at",
-      {title_cont: "", s: "created_at desc"}
+      {title_cont: "", s: ["created_at desc"]}
 
     assert_parse_transform "sort:-created_at,updated_at",
       {title_cont: "", s: ["created_at desc", "updated_at asc"]}

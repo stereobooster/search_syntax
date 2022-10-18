@@ -15,12 +15,24 @@ module SearchSyntax
       # i_cont..., start, end, true, false, not_true, not_false
     }
 
-    # text - symbol. Idea for the future it can be callback to allow to manipulate query for full-text search
+    # text - symbol. Idea for the future: it can be callback to allow to manipulate query for full-text search
     # params - array of strings
-    def initialize(text:, params:)
+    # sort - string. nil - to disbale parsing sort param
+    def initialize(text:, params:, sort: nil)
       @text = text
       @params = params
+      @sort = sort
       @spell_checker = DidYouMean::SpellChecker.new(dictionary: @params)
+    end
+
+    def transform_sort_param(value)
+      value.split(",").map do |sort_value|
+        if sort_value.start_with?("-")
+          "#{sort_value[1..]} desc"
+        else
+          "#{sort_value} asc"
+        end
+      end
     end
 
     def transform_with_errors(ast)
@@ -31,6 +43,9 @@ module SearchSyntax
         ast = ast.filter do |node|
           if node[:type] != :param
             true
+          elsif node[:name] == @sort
+            result[:s] = transform_sort_param(node[:value])
+            false
           elsif @params.include?(node[:name])
             predicate = PREDICATES[node[:predicate]] || :eq
             key = "#{node[:name]}_#{predicate}".to_sym
