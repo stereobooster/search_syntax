@@ -61,7 +61,7 @@ module SearchSyntax
         separator = previous == node[:start] || previous == -1 ? "" : " "
         previous = node[:finish]
         separator + node[:raw]
-      end.join("")
+      end.join
 
       [result, errors]
     end
