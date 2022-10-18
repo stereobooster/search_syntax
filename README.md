@@ -1,10 +1,3 @@
-# TODO
-
-- write usage intructions
-- check if array works for sort
-- publish
-- share with ransack
-
 # search_syntax
 
 Parser for "advanced search" query language. Inspired by [GitHub's search syntax](https://docs.github.com/en/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax)
@@ -63,7 +56,20 @@ $ gem install search_syntax
 
 ## Usage
 
-TODO: Write usage instructions here
+### With ransack
+
+```diff
+def index
+-  @q = Person.ransack(params[:q])
++  query_parser = SearchSyntax::Ransack.new(text: :name_or_email_cont, params: Person.column_names - ["id"])
++  @q = Person.ransack(query_parser.parse(params[:search]))
+  @people = @q.result(distinct: true)
+end
+```
+
+### Standalone
+
+see `lib/search_syntax/ransack.rb` for an example of how to use parser
 
 ## Similar packages
 
