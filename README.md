@@ -9,23 +9,9 @@
 
 Parser for "advanced search" query language. Inspired by [GitHub's search syntax](https://docs.github.com/en/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax)
 
-There is no wide accepted terminology for this kind of query language. Sometimes it's called:
+There is no wide accepted terminology for this kind of query language. Sometimes it's called: [query string](http://recursion.org/query-parser), [search query](https://tgvashworth.com/2016/06/27/twitter-search-query-parser.html), [advanced search query](https://github.com/mixmaxhq/search-string), [generic query](https://github.com/tomprogers/common-query-parser)
 
-- [query string](http://recursion.org/query-parser)
-- [search query](https://tgvashworth.com/2016/06/27/twitter-search-query-parser.html)
-- [advanced search query](https://github.com/mixmaxhq/search-string)
-- [generic query](https://github.com/tomprogers/common-query-parser)
-
-Package provides only parser. AST produced by parser can be converted to a specific "backend", for example:
-
-- [ransack](https://activerecord-hackery.github.io/ransack/getting-started/search-matches/)
-- [MySQL Full-Text Search](https://dev.mysql.com/doc/refman/8.0/en/fulltext-boolean.html)
-- [PostgreSQL Full-Text Search](https://www.postgresql.org/docs/current/textsearch-controls.html#TEXTSEARCH-PARSING-QUERIES)
-- [Meilisearch](https://docs.meilisearch.com/reference/api/search.html#body)
-- [Elasticsearch](https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl.html)
-- [Solr](https://solr.apache.org/guide/6_6/the-standard-query-parser.html)
-- [Lucene](https://lucene.apache.org/core/2_9_4/queryparsersyntax.html) ([Lucene vs Solr](https://www.lucenetutorial.com/lucene-vs-solr.html))
-- [Sphinx](https://sphinxsearch.com/docs/current/extended-syntax.html)
+Package provides only parser. AST produced by parser can be converted to a specific "backend", for example: [ransack](https://activerecord-hackery.github.io/ransack/getting-started/search-matches/), [MySQL Full-Text Search](https://dev.mysql.com/doc/refman/8.0/en/fulltext-boolean.html), [PostgreSQL Full-Text Search](https://www.postgresql.org/docs/current/textsearch-controls.html#TEXTSEARCH-PARSING-QUERIES), [Meilisearch](https://docs.meilisearch.com/reference/api/search.html#body), [Elasticsearch](https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl.html), [Solr](https://solr.apache.org/guide/6_6/the-standard-query-parser.html), [Lucene](https://lucene.apache.org/core/2_9_4/queryparsersyntax.html) ([Lucene vs Solr](https://www.lucenetutorial.com/lucene-vs-solr.html)), [Sphinx](https://sphinxsearch.com/docs/current/extended-syntax.html)
 
 Transforming AST is out of scope of this package, except for Ransack, which serves as an example of implementation.
 
