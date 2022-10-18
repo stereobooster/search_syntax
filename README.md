@@ -11,17 +11,10 @@ Parser for "advanced search" query language. Inspired by [GitHub's search syntax
 
 There is no wide accepted terminology for this kind of query language. Sometimes it's called:
 
-  - [query string](http://recursion.org/query-parser)
-  - [search query](https://tgvashworth.com/2016/06/27/twitter-search-query-parser.html)
-  - [advanced search query](https://github.com/mixmaxhq/search-string)
-  - [generic query](https://github.com/tomprogers/common-query-parser)
-
-Similar packages:
-
-  - [search_cop](https://github.com/mrkamel/search_cop)
-  - [easy-filter](https://github.com/Noriller/easy-filter)
-  - [human-ql](https://github.com/dekellum/human-ql)
-  - [logical_query_parser](https://github.com/kanety/logical_query_parser)
+- [query string](http://recursion.org/query-parser)
+- [search query](https://tgvashworth.com/2016/06/27/twitter-search-query-parser.html)
+- [advanced search query](https://github.com/mixmaxhq/search-string)
+- [generic query](https://github.com/tomprogers/common-query-parser)
 
 Package provides only parser. AST produced by parser can be converted to a specific "backend", for example:
 
@@ -45,7 +38,7 @@ There are different types of search, they require different features:
 ```mermaid
 graph LR
   Search --> Parametric --> op1[param = 1, param > 2, etc.]
-  Search --> s1[Text: single term] 
+  Search --> s1[Text: single term]
   s1 --> op2[Phonetic similarity: names, emails, words with alternate spellings, etc.]
   s1 --> op3[Ortographic similarity: drug names, biological species, typos in proper nouns, etc.]
   s1 --> op4[Pattern match: logs, match by part of word, etc.]
@@ -81,6 +74,13 @@ If bundler is not being used to manage dependencies, install the gem by executin
 ## Usage
 
 TODO: Write usage instructions here
+
+## Similar packages
+
+- [search_cop](https://github.com/mrkamel/search_cop)
+- [easy-filter](https://github.com/Noriller/easy-filter)
+- [human-ql](https://github.com/dekellum/human-ql)
+- [logical_query_parser](https://github.com/kanety/logical_query_parser)
 
 ## Development
 
