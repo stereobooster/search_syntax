@@ -56,7 +56,12 @@ module SearchSyntax
         end
       end
 
-      result[@text] = ast.map { |node| node[:raw] }.join(" ")
+      previous = -1
+      result[@text] = ast.map do |node|
+        separator = previous == node[:start] || previous == -1 ? "" : " "
+        previous = node[:finish]
+        separator + node[:raw]
+      end.join("")
 
       [result, errors]
     end

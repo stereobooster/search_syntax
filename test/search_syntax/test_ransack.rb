@@ -82,8 +82,6 @@ class TestAdvancedSearchRansack < Minitest::Test
   end
 
   def test_issue_1
-    skip "TODO: print back the same string"
-    # use CST instead of AST
     assert_parse_transform '"xxx"yyy',
       {title_cont: '"xxx"yyy'}
   end
