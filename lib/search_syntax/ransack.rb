@@ -15,8 +15,8 @@ module SearchSyntax
       # i_cont..., start, end, true, false, not_true, not_false
     }
 
-    # text - symbol or TODO: callback
-    # params - array of symbols or TODO: callback
+    # text - symbol. Idea for the future it can be callback to allow to manipulate query for full-text search
+    # params - array of strings
     def initialize(text:, params:)
       @text = text
       @params = params
