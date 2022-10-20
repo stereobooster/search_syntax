@@ -63,7 +63,7 @@ which may be counterintuitve without syntax checker.
 
 - [ransack](https://activerecord-hackery.github.io/ransack/getting-started/search-matches/)
 - [MySQL Full-Text Search](https://dev.mysql.com/doc/refman/8.0/en/fulltext-boolean.html)
-- [PostgreSQL Full-Text Search](https://www.postgresql.org/docs/current/textsearch-controls.html#TEXTSEARCH-PARSING-QUERIES)\
+- [PostgreSQL Full-Text Search](https://www.postgresql.org/docs/current/textsearch-controls.html#TEXTSEARCH-PARSING-QUERIES)
 - [Meilisearch](https://docs.meilisearch.com/learn/advanced/filtering_and_faceted_search.html#using-filters)
 - [Elasticsearch](https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl.html)
 - [Solr](https://solr.apache.org/guide/6_6/the-standard-query-parser.html)
@@ -89,7 +89,7 @@ which may be counterintuitve without syntax checker.
   - https://www.npmjs.com/package/react-tag-input
   - this would require [CST](https://www.cse.chalmers.se/edu/year/2011/course/TIN321/lectures/proglang-02.html) rather than AST
 - Return parsed query
-  - If query is parsed incorrectly it most likely will return no results. And on this screen we can show "parsed" query. For this we need "printer" which will convert CST to HTML 
+  - If query is parsed incorrectly it most likely will return no results. And on this screen we can show "parsed" query. For this we need "printer" which will convert CST to HTML
 
 ## No one-size-fits-all
 
@@ -137,8 +137,8 @@ Initial idea was to implement universal language. But more I think of this task 
 |                      | a:1 b:1      | a = 1 and b = 1                               |         |
 |                      | a and b      | containing a and b                            |         |
 |                      | a:1 and b:1  | a = 1 and b = 1                               |         |
-| escape special chars | \\\|         | containing "\"                                | never   |
-|                      | "\|"         | containing "\"                                | always  |
+| escape special chars | \\\|         | containing "\|"                               | never   |
+|                      | "\|"         | containing "\|"                               | always  |
 
 ## Operator Precedence
 
