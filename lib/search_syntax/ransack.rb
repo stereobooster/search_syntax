@@ -5,7 +5,7 @@ require_relative "ransack_transformer"
 module SearchSyntax
   class Ransack
     # text - symbol. Idea for the future: it can be callback to allow to manipulate query for full-text search
-    # params - array of strings. TODO: hash to be able to rename params
+    # params - array of strings; or hash to rename params
     # sort - string. nil - to disbale parsing sort param
     def initialize(text:, params:, sort: nil)
       @transformer = RansackTransformer.new(text: text, params: params, sort: sort)

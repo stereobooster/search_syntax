@@ -102,4 +102,10 @@ class TestAdvancedSearchRansack < Minitest::Test
     assert_parse 'param:"O\"neil"',
       {title_cont: "", param_eq: "O\"neil"}
   end
+
+  def test_param_rename
+    parser = SearchSyntax::Ransack.new(text: :title_cont, params: {param: "db_column"})
+    query_res = parser.parse("param:1")
+    assert_equal query_res, {title_cont: "", db_column_eq: "1"}
+  end
 end

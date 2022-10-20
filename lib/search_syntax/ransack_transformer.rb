@@ -17,9 +17,15 @@ module SearchSyntax
 
     def initialize(text:, params:, sort: nil)
       @text = text
+      if params.is_a?(Array)
+        params = params.to_h { |i| [i.to_s, i] }
+      elsif params.is_a?(Hash)
+        params = params.map { |k, v| [k.to_s, v] }.to_h
+      end
       @params = params
+      @allowed_params = params.keys
       @sort = sort
-      @spell_checker = DidYouMean::SpellChecker.new(dictionary: @params)
+      @spell_checker = DidYouMean::SpellChecker.new(dictionary: @allowed_params)
     end
 
     def transform_sort_param(value)
@@ -36,16 +42,16 @@ module SearchSyntax
       errors = []
       result = {}
 
-      if @params.is_a?(Array)
+      if @allowed_params.length > 0
         ast = ast.filter do |node|
           if node[:type] != :param
             true
           elsif node[:name] == @sort
             result[:s] = transform_sort_param(node[:value])
             false
-          elsif @params.include?(node[:name])
+          elsif @allowed_params.include?(node[:name])
             predicate = PREDICATES[node[:predicate]] || :eq
-            key = "#{node[:name]}_#{predicate}".to_sym
+            key = "#{@params[node[:name]]}_#{predicate}".to_sym
             if !result.key?(key)
               result[key] = node[:value]
             else
