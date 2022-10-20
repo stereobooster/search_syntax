@@ -14,31 +14,7 @@ So far parser only supports bare strings, **quoted strings** (`"some string"`) a
 
 Parser **doesn't** support negation (`not`/`-`), boolean operations (`and`/`&`/`or`/`|`) and groupping (`(a | b)`).
 
-This probably will change as soon as I understand how to add those "advanced" features without making it less user-friendly to non-techy people. See "Challenge" section for explantions.
-
-## Challenge
-
-Main challenge is to come up with query language intuitive enough that non-techy people can use, but powerfull enough to expose all advanced features.
-
-There are different types of search, they require different features:
-
-```mermaid
-graph LR
-  Search --> Parametric --> op1[param = 1, param > 2, etc.]
-  Search --> s1[Text: single term]
-  s1 --> op2[Phonetic similarity: names, emails, words with alternate spellings, etc.]
-  s1 --> op3[Ortographic similarity: drug names, biological species, typos in proper nouns, etc.]
-  s1 --> op4[Pattern match: logs, match by part of word, etc.]
-  Search --> s2[Text: multiple terms]
-  s2 --> op5[Full-text search: text in natural language]
-  s2 --> op6[Single term search with boolean operations: AND, OR, NOT, grouping]
-```
-
-**Note**: No. Full-text search is not an universal solution for all types of text search. It is designed to search in natural language texts. But this subject deserves a separate article.
-
-**Parametric search** aka faceted search - [filter by strctured data](https://en.wikipedia.org/wiki/Faceted_search).
-
-**Aproximate search** aka fuzzy search aka approximate string matching - [is the technique of finding strings that match a pattern approximately (rather than exactly)](https://en.wikipedia.org/wiki/Approximate_string_matching).
+This probably will change as soon as I understand how to add those "advanced" features without making it less user-friendly for non-techy people. See [Language design](docs/language-design.md) for explanations.
 
 ## Installation
 
