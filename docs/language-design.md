@@ -65,10 +65,21 @@ which may be counterintuitve without syntax checker.
 - [MySQL Full-Text Search](https://dev.mysql.com/doc/refman/8.0/en/fulltext-boolean.html)
 - [PostgreSQL Full-Text Search](https://www.postgresql.org/docs/current/textsearch-controls.html#TEXTSEARCH-PARSING-QUERIES)
 - [Meilisearch](https://docs.meilisearch.com/learn/advanced/filtering_and_faceted_search.html#using-filters)
-- [Elasticsearch](https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl.html)
 - [Solr](https://solr.apache.org/guide/6_6/the-standard-query-parser.html)
   - [Lucene](https://lucene.apache.org/core/2_9_4/queryparsersyntax.html) ([Lucene vs Solr](https://www.lucenetutorial.com/lucene-vs-solr.html))
 - [Sphinx](https://sphinxsearch.com/docs/current/extended-syntax.html)
+
+### Other search engines
+
+- [Manticore Search](https://github.com/manticoresoftware/manticoresearch) is an open-source database that was created in 2017 as a continuation of Sphinx Search engine.
+- [RediSearch](https://github.com/RediSearch/RediSearch)
+- [Elasticsearch](https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl.html) and it's alternatives:
+  - [sonic](https://github.com/valeriansaliou/sonic)
+  - [typesense](https://github.com/typesense/typesense)
+  - [zinc](https://github.com/zinclabs/zinc)
+  - [Toshi](https://github.com/toshi-search/Toshi)
+- [phalanx](https://github.com/mosuka/phalanx)
+- [pisa](https://github.com/pisa-engine/pisa)
 
 ## Text + parametric search
 
@@ -204,3 +215,7 @@ Option 2:
 - `or a`
   - containing `a`
   - containing `or` and `a`
+
+## Similar languages
+
+- [REST Query Language](https://github.com/jirutka/rsql-parser)
