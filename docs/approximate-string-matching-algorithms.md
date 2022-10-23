@@ -63,7 +63,7 @@ Measures can be separated in following categories:
 | category     | Measure                                     | Input data          | Type                   | Metric        | Normalized                             |
 | ------------ | ------------------------------------------- | ------------------- | ---------------------- | ------------- | -------------------------------------- |
 | Phonetic     | Phonetic hashing (Soundex, Metaphone, etc.) | sequence of letters | similarity (relevance) |               | Yes                                    |
-| Orthographic | Levenshtein distance                        | sequence            | dissimilarity          | Yes           | `l(x, y) / max(len(x), len(y))`        |
+| Orthographic | Levenshtein distance                        | sequence            | dissimilarity          | Yes           | `l(x, y) / max(len(x), len(y))` , NED  |
 |              | Damerau-Levenshtein distance                | sequence            | dissimilarity          |               |                                        |
 |              | Hamming distance                            | sequence            | dissimilarity          | Yes           |                                        |
 |              | Jaro distance                               | sequence            | dissimilarity          |               |                                        |
@@ -97,11 +97,11 @@ This would be slow, so in order to overcome this we can preprocess data and prod
 
 For example we can implement following indexes:
 
-| Algorithm         | Index                                   | Example                              |
-| ----------------- | --------------------------------------- | ------------------------------------ |
-| Phonetic hashing  | B-tree with hashed values               |                                      |
-| set of n-grams    | inverted index with trigrams            | PostgreSQL trigram index             |
-| sequence of words | inverted index with words and positions | PostgreSQL and MySQL full-text index |
+| Algorithm         | Index                                     | Example                              |
+| ----------------- | ----------------------------------------- | ------------------------------------ |
+| Phonetic hashing  | B-tree with hashed values                 |                                      |
+| set of n-grams    | inverted index with trigrams              | PostgreSQL trigram index             |
+| sequence of words | inverted index with words (and positions) | PostgreSQL and MySQL full-text index |
 
 - Those indexes won't help much with edit distance algorithm(s), because it is still quite expensive algorithm
   - There is so called BK-tree index, which works in this case but it is not suitable for databases, it is more suitable for fixed dictionary, like correction for spell errors
@@ -119,4 +119,3 @@ For this case there are better rnaking functions, such as:
 - LM Dirichlet similarity
 - LM Jelinek Mercer similarity
 - etc.
-
