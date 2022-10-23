@@ -33,8 +33,8 @@ Examples of metrics:
 Different edit operations can have different cost. But if we want it to preserve metric properties deletion and insertion must be the same cost.
 
 ```
-I N T E * N T I O N
-* E X E C U T I O N
+I N T E - N T I O N
+- E X E C U T I O N
 d s s   i s
 ```
 
@@ -44,8 +44,8 @@ d s s   i s
 In order to determine minimal number of edit operations we need optimal squence alignment:
 
 ```
-h a n d    h a n d - - - -     h a n d -
-a n d i    - - - - a n d i     - a n d i
+H A N D    H A N D - - - -     H A N D -
+A N D I    - - - - A N D I     - A N D I
 ```
 
 Some distances may have more than one algorithm to compute it, for example [Levenshtein distance](https://ceptord.net/20200815-Comparison.html):
