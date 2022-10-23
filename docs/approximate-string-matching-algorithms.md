@@ -24,6 +24,7 @@
 - **Sequence** is required for "edit distance" algorithms, because they need to know position.
 - In means of implementation **set** can be implemented as hash table e.g. `{a: true, b: true}` (`aba`)
   - Than **set with frequency** can be implemented as hash where value would be a frequency `{a: 2, b: 1}` (`aba`)
+- There are aslo **skip-grams** which are not shown here
 
 There can be more steps in this process, for example:
 
@@ -87,3 +88,35 @@ Measures can be separated in following categories:
 |                                  | Hunt–Szymanski |                          |                  | https://imada.sdu.dk/~rolf/Edu/DM823/E16/HuntSzymanski.pdf                                                                                           |
 
 **TODO**: it is not full list of algorithms
+
+## Indexes
+
+All algorithms above assume two input strings. So if we need to search throug a database we would need to go row by by row comparing each value in DB to the query, choose all relevant rows and sort by rank.
+
+This would be slow, so in order to overcome this we can preprocess data and produce data structure more suitable for the given algorithm, to speed up process of retrieval, by making inserts and updates a bit slower. This data structure in the context of database called **index**.
+
+For example we can implement following indexes:
+
+| Algorithm         | Index                                   | Example                              |
+| ----------------- | --------------------------------------- | ------------------------------------ |
+| Phonetic hashing  | B-tree with hashed values               |                                      |
+| set of n-grams    | inverted index with trigrams            | PostgreSQL trigram index             |
+| sequence of words | inverted index with words and positions | PostgreSQL and MySQL full-text index |
+
+- Those indexes won't help much with edit distance algorithm(s), because it is still quite expensive algorithm
+  - There is so called BK-tree index, which works in this case but it is not suitable for databases, it is more suitable for fixed dictionary, like correction for spell errors
+
+## Ranking
+
+Theoretically it is possible to use measures as ranking, but the problem is that those functions only take into account two strings. This won't work good for big texts in DB and small queries. Because all measures will be indistinguishable (either very small, or very big).
+
+For this case there are better rnaking functions, such as:
+
+- TF-IDF
+- BM25
+- DFR similarity
+- IB similarity
+- LM Dirichlet similarity
+- LM Jelinek Mercer similarity
+- etc.
+
