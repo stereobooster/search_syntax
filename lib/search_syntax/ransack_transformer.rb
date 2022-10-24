@@ -18,9 +18,13 @@ module SearchSyntax
     def initialize(text:, params:, sort: nil)
       @text = text
       if params.is_a?(Array)
-        params = params.to_h { |i| [i.to_s, i] }
+        params = params.to_h { |i| [i.to_s.delete(":"), i] }
       elsif params.is_a?(Hash)
-        params = params.map { |k, v| [k.to_s, v] }.to_h
+        params = params.map do |k, v|
+          k = k.to_s
+          skip_predicate = k.include?(":")
+          [k.delete(":"), v + (skip_predicate ? ":" : "")]
+        end.to_h
       end
       @params = params
       @allowed_params = params.keys
@@ -50,8 +54,7 @@ module SearchSyntax
             result[:s] = transform_sort_param(node[:value])
             false
           elsif @allowed_params.include?(node[:name])
-            predicate = PREDICATES[node[:predicate]] || :eq
-            key = "#{@params[node[:name]]}_#{predicate}".to_sym
+            key = name_with_predicate(node)
             if !result.key?(key)
               result[key] = node[:value]
             else
@@ -82,6 +85,18 @@ module SearchSyntax
       end.join
 
       [result, errors]
+    end
+
+    private
+
+    def name_with_predicate(node)
+      name = @params[node[:name]]
+      if name.include?(":")
+        name.delete(":")
+      else
+        predicate = PREDICATES[node[:predicate]] || :eq
+        "#{name}_#{predicate}"
+      end.to_sym
     end
   end
 end

@@ -103,9 +103,24 @@ class TestAdvancedSearchRansack < Minitest::Test
       {title_cont: "", param_eq: "O\"neil"}
   end
 
+  # this can be done with `ransack_alias`
   def test_param_rename
     parser = SearchSyntax::Ransack.new(text: :title_cont, params: {param: "db_column"})
     query_res = parser.parse("param:1")
     assert_equal query_res, {title_cont: "", db_column_eq: "1"}
+  end
+
+  # useful for scopes
+  def test_param_without_predicate_array
+    parser = SearchSyntax::Ransack.new(text: :title_cont, params: ["param:"])
+    query_res = parser.parse("param:1")
+    assert_equal query_res, {title_cont: "", param: "1"}
+  end
+
+  # useful for scopes
+  def test_param_without_predicate_hash
+    parser = SearchSyntax::Ransack.new(text: :title_cont, params: {"param:" => "db_column"})
+    query_res = parser.parse("param:1")
+    assert_equal query_res, {title_cont: "", db_column: "1"}
   end
 end
