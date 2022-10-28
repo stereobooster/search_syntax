@@ -60,18 +60,18 @@ Measures can be separated in following categories:
    - phonetic (if words sound similar). Good for words without but with different spellings, like `Claire`, `Clare`
    - ortographic (if words look similar). Good for detecting typos and errors
 
-| category     | Measure                                     | Input data          | Type                   | Metric        | Normalized                             |
-| ------------ | ------------------------------------------- | ------------------- | ---------------------- | ------------- | -------------------------------------- |
-| Phonetic     | Phonetic hashing (Soundex, Metaphone, etc.) | sequence of letters | similarity (relevance) |               | Yes                                    |
-| Orthographic | Levenshtein distance                        | sequence            | dissimilarity          | Yes           | `l(x, y) / max(len(x), len(y))` , NED  |
-|              | Damerau-Levenshtein distance                | sequence            | dissimilarity          |               |                                        |
-|              | Hamming distance                            | sequence            | dissimilarity          | Yes           |                                        |
-|              | Jaro distance                               | sequence            | dissimilarity          |               |                                        |
-|              | Jaro–Winkler distance                       | sequence            | dissimilarity          |               |                                        |
-|              | Longest common subsequence (LCS)            | sequence            | similarity             | ?             | `len(lcs(x, y)) / max(len(x), len(y))` |
-|              | Jaccard index                               | set                 | similarity             | `1 - j(x ,y)` | Yes                                    |
-|              | Dice coefficient                            | set                 | similarity             | ?             | Yes                                    |
-|              | Cosine similarity                           | set with frequency  | similarity             | ?             | Yes                                    |
+| category     | Measure                                     | Input data          | Type                   | Metric        | Normalized                                 |
+| ------------ | ------------------------------------------- | ------------------- | ---------------------- | ------------- | ------------------------------------------ |
+| Phonetic     | Phonetic hashing (Soundex, Metaphone, etc.) | sequence of letters | similarity (relevance) | No            | Yes (kind of)                              |
+| Orthographic | Hamming distance                            | sequence            | dissimilarity          | Yes           | `d(x,y) / len(x)`                          |
+|              | LCS distance                                | sequence            | dissimilarity          | Yes           | `1 - 2*len(lcs(x, y)) / (len(x) + len(y))` |
+|              | Levenshtein distance                        | sequence            | dissimilarity          | Yes           | `d(x, y) / max(len(x), len(y))`            |
+|              | Damerau-Levenshtein distance                | sequence            | dissimilarity          | Yes           | `d(x, y) / max(len(x), len(y))` , NED      |
+|              | Jaro similarity                             | sequence            | similarity             | No            | Yes                                        |
+|              | Jaro–Winkler similarity                     | sequence            | similarity             | No            | Yes                                        |
+|              | Jaccard index                               | set                 | similarity             | `1 - j(x ,y)` | Yes                                        |
+|              | Dice coefficient                            | set                 | similarity             | ?             | Yes                                        |
+|              | Cosine similarity                           | set with frequency  | similarity             | ?             | Yes                                        |
 
 **TODO**: it is not full list of measures
 
@@ -79,6 +79,15 @@ Measures can be separated in following categories:
 
 1. Some measures can have more than one algorithm to calculate it
 2. Algorithms are different by computational and space complexity
+3. online/offline
+   - Online algorithms search without pre-processing the target data, and need to traverse all data during the search
+   - Offline algorithms pre-process the target data and may store it in memory or on disk to speed up query processing (see "Indexes" section below)
+4. exhaustive/heuristic
+   - Exhaustive algorithms guarantee to find all occurrences of the query in the target
+   - Heuristic algorithms may not find all similar data. In heuristics, a reduction of the search time is achieved by evaluating only the statistically interesting patterns
+5. global/local measure of similarity
+   - Global takes into account the similarity of all target data to the query
+   - Local takes into account the similarity between some part of the target and the query
 
 | Measure                          | Algorithm      | Computational complexity | Space complexity | Comment                                                                                                                                              |
 | -------------------------------- | -------------- | ------------------------ | ---------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |

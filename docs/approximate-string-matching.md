@@ -12,10 +12,10 @@ Diffrent edit distances can have different **edit operations**: deletion, insert
 
 |                              | deletion | insertion | substitution | transposition |
 | ---------------------------- | -------- | --------- | ------------ | ------------- |
-| Levenshtein distance         | +        | +         | +            |               |
-| Damerau-Levenshtein distance | +        | +         | +            | +             |
 | Hamming distance             |          |           | +            |               |
 | Longest common subsequence   | +        | +         |              |               |
+| Levenshtein distance         | +        | +         | +            |               |
+| Damerau-Levenshtein distance | +        | +         | +            | +             |
 
 Distance is a metric. Metric is a function which has following properties:
 
@@ -64,13 +64,13 @@ Distance-like measures require sequential data e.g. interpret string as array of
 Similarity is not a metric. Edit distance can be converted to similarity, for example:
 
 ```
-sim(x, y) = 1 - dist(x, y) / max(len(x), len(y))
+sim(x, y) = 1 - dist(x, y) / max_dist(x, y)
 ```
 
 On the other hand similarity doesn't have to rely on edit distance. For example, simplest but probably not most effective measure can be number of similar symbols in the string (aka unigrams). But trigrams would be quite good estimation.
 
 ```
-dice(x ,y) = 2 * len(commom(x, y)) / (len(x) + len(y))
+dice(x ,y) = 2 * len(int(x, y)) / (len(x) + len(y))
 ```
 
 Normalized similarity is in the range `[0, 1]` . Where 0 means strings are different, 1 that strings are equal.
