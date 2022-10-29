@@ -14,7 +14,7 @@ Diffrent edit distances can have different **edit operations**: deletion, insert
 
 ## Hamming distance
 
-Hamming distance is a very specic measure. It assumes that strings are of the same length. It is rather makes sense for networks, signal processing, where messages (think of network packets) have constant size.
+Hamming distance is a very specific measure. It assumes that strings are of the same length. It is rather makes sense for networks, signal processing, where messages (think of network packets) have constant size.
 
 So I won't compare it to other measures.
 
@@ -25,7 +25,7 @@ LCS stands for Longest Common Subsequence (not substring). I will denote it as `
 - `lcs(test, east)` is `est`
 - `len(test)` is `4`
 
-Now let's assum we want to measure edit distance between string, using only using **delete** and **insert** operations:
+Now let's assume we want to measure edit distance between string, using only **delete** and **insert** operations:
 
 - number of letters we need to delete from `x` in order to turn it in `y` is `len(x) - len(lcs(x, y))`
 - number of letters we need to insert in `x` in order to turn it in `y` is `len(y) - len(lcs(x, y))`
@@ -38,13 +38,13 @@ and "LCS similarity" is: `lcs_sim_norm(x, y) = 2*len(lcs(x, y))/(len(x) + len(y)
 
 Which looks very similar to Dice coefficient: `dice_sim(x, y) = 2*len(int(x,y))/(len(x) + len(y))`, where `int` is set intersection.
 
-## Levenstein distance
+## Levenshtein distance
 
-`lcs_dist(test, east)` is `2`. But `lcs_dist(test, text)` is also `2`, which doesn't make sense. Levenstein distance improves "LCS edit distance" by adding **substitution** operation, so `lev(test, text)` becomes `1`.
+`lcs_dist(test, east)` is `2`. But `lcs_dist(test, text)` is also `2`, which doesn't make sense. Levenshtein distance improves "LCS edit distance" by adding **substitution** operation, so `lev(test, text)` becomes `1`.
 
-Maximum of Levenstein distance is `max(len(x), len(y))`, than normalized distance is: `lev_dist_norm(x, y) = lev_dist(x, y) / max(len(x), len(y))`.
+Maximum of Levenshtein distance is `max(len(x), len(y))`, than normalized distance is: `lev_dist_norm(x, y) = lev_dist(x, y) / max(len(x), len(y))`.
 
-Levenstein similarity is: `lev_sim_norm(x, y) = 1 - lev_dist(x, y) / max(len(x), len(y))`
+Levenshtein similarity is: `lev_sim_norm(x, y) = 1 - lev_dist(x, y) / max(len(x), len(y))`
 
 ### Weighted Levenshtein distance
 
@@ -61,13 +61,13 @@ The more chances of replacing one letter with another, the less weight, for exam
 
 See: [weighted-levenshtein](https://github.com/infoscout/weighted-levenshtein).
 
-## Damerau-Levenstein distance
+## Damerau-Levenshtein distance
 
-`lev_dist(test, tset)` is `2`, but this is common typo - accidentally type letters in reverse order. Damerau-Levenstein distance improves Levenstein distance by adding **transposition** operation, so `dam_lev_dist(test, tset)` becomes `1`.
+`lev_dist(test, tset)` is `2`, but this is common typo - accidentally type letters in reverse order. Damerau-Levenshtein distance improves Levenshtein distance by adding **transposition** operation, so `dam_lev_dist(test, tset)` becomes `1`.
 
-Maximum of Damerau-Levenstein distance distance is `max(len(x), len(y))`, than normalized distance is: `dam_lev_dist_norm(x, y) = dam_lev_dist(x, y) / max(len(x), len(y))`.
+Maximum of Damerau-Levenshtein distance distance is `max(len(x), len(y))`, than normalized distance is: `dam_lev_dist_norm(x, y) = dam_lev_dist(x, y) / max(len(x), len(y))`.
 
-Damerau-Levenstein similarity is: `dam_lev_sim_norm(x, y) = 1 - dam_lev_dist(x, y) / max(len(x), len(y))`
+Damerau-Levenshtein similarity is: `dam_lev_sim_norm(x, y) = 1 - dam_lev_dist(x, y) / max(len(x), len(y))`
 
 ## More...
 
@@ -79,11 +79,11 @@ We can think of another types of operations or weights, for example:
 
 ## Jaro similarity
 
-`lcs_sim_norm(FAREMVIEL, FARMVILLE) = 7 / 9 ~ 0.77`. But `lcs(FAREMVIEL, FARMVILLE)` are `FARMVIL`, `FARMVIE` e.g. two different strings, but the smae length. Jaro similarity improves LCS similarity by taking into account such situations. `jaro_sim_norm(FAREMVIEL, FARMVILLE) = 0.88`. `jaro_subsequence(FAREMVIEL, FARMVILLE)` are `FARMVIEL` are `FARMVILE`.
+`lcs_sim_norm(FAREMVIEL, FARMVILLE) = 7 / 9 ~ 0.77`. But `lcs(FAREMVIEL, FARMVILLE)` are `FARMVIL`, `FARMVIE` e.g. two different strings, but the same length. Jaro similarity improves LCS similarity by taking into account such situations. `jaro_sim_norm(FAREMVIEL, FARMVILLE) = 0.88`. `jaro_subsequence(FAREMVIEL, FARMVILLE)` are `FARMVIEL` are `FARMVILE`.
 
 Check out [wikipedia page](https://en.wikipedia.org/wiki/Jaro%E2%80%93Winkler_distance) for the formula.
 
-But Jaro similarity is not direct extension of LCS similarity, otherwise in the absence of transposition they would return same value:
+But Jaro similarity is not direct extension of LCS similarity, otherwise in the absence of transposition they would return the same value:
 
 - `lcs_sim_norm(test, east)  = 3/4`
 - `jaro_sim_norm(test, east) = 5/6`
