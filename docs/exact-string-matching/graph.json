@@ -1,0 +1,1740 @@
+{
+  "source": "Faro S.: Exact Online String Matching Bibliography (2016). https://arxiv.org/pdf/1605.05067.pdf",
+  "algorithms": [
+    {
+      "name": "Brute-Force",
+      "id": "BF",
+      "date": null,
+      "description": "Naive algorithm for the string matching problem. It works in O(nm)-time",
+      "relationship": [],
+      "type": "CoC",
+      "papers": [
+        31
+      ]
+    },
+    {
+      "name": "Morris-Pratt",
+      "id": "MP",
+      "date": 1970,
+      "description": "First linear algorithm scanning the text and the pattern from left to right. It derives from BF. Preprocessing of the pattern in O(m)-time and -space.",
+      "relationship": [
+        "BF"
+      ],
+      "type": "CoC",
+      "papers": [
+        80
+      ]
+    },
+    {
+      "name": "Knuth-Morris-Pratt",
+      "id": "KMP",
+      "date": 1977,
+      "description": "Linear algorithm. Improvement of MP",
+      "relationship": [
+        "MP"
+      ],
+      "type": "CoC",
+      "papers": [
+        74
+      ]
+    },
+    {
+      "name": "Boyer-Moore",
+      "id": "BM",
+      "date": 1977,
+      "description": "Introduces the sliding window approach and the scanning of the window from right to left. It works in O(nm)-time. It uses the occurrence and the good-suffix heuristics. It derives from BF",
+      "relationship": [
+        "BF"
+      ],
+      "type": "CoC",
+      "papers": [
+        18
+      ]
+    },
+    {
+      "name": "Horspool",
+      "id": "HOR",
+      "date": 1980,
+      "description": "Improvement of BM. It uses only a modification if the occurrence heuristics",
+      "relationship": [
+        "BM"
+      ],
+      "type": "CoC",
+      "papers": [
+        65
+      ]
+    },
+    {
+      "name": "Galil-Seiferas",
+      "id": "GS",
+      "date": 1981,
+      "description": "Linear algorithm using constant extra space complexity. Preprocessing in O(m)-time. It performs 5n text character comparisons in the worst case.",
+      "relationship": [],
+      "type": "CoC",
+      "papers": [
+        60,
+        61
+      ]
+    },
+    {
+      "name": "Apostolico-Giancarlo",
+      "id": "AG",
+      "date": 1986,
+      "description": "Variant of BM. It works in O(n)-time complexity and performs 3n/2 comparisons in the worst case",
+      "relationship": [
+        "BM"
+      ],
+      "type": "CoC",
+      "papers": [
+        7
+      ]
+    },
+    {
+      "name": "Karp-Rabin",
+      "id": "KR",
+      "date": 1987,
+      "description": "First filter algorithm using an hashing function. It works in O(mn)-time complexity but has an O(n + m) expected running time.",
+      "relationship": [],
+      "type": "CoC",
+      "papers": [
+        73
+      ]
+    },
+    {
+      "name": "Zhu-Takaoka",
+      "id": "ZT",
+      "date": 1987,
+      "description": "Improvement of HOR which uses two characters for computing the occurrence heuristics.",
+      "relationship": [
+        "HOR"
+      ],
+      "type": "CoC",
+      "papers": [
+        101
+      ]
+    },
+    {
+      "name": "Quick-Search ",
+      "id": "QS",
+      "date": 1990,
+      "description": "Improvement of HOR. It uses the character which follows the current window to compute the occurrence heuristics.",
+      "relationship": [
+        "HOR"
+      ],
+      "type": "CoC",
+      "papers": [
+        96
+      ]
+    },
+    {
+      "name": "Optimal-Mismatch",
+      "id": "OM",
+      "date": 1990,
+      "description": "Variation of QS using probabilities of characters. It compares the pattern and the text proceeding from the less frequent to the more frequent character.",
+      "relationship": [
+        "QS"
+      ],
+      "type": "CoC",
+      "papers": [
+        96
+      ]
+    },
+    {
+      "name": "Maximal-Shift",
+      "id": "MS",
+      "date": 1990,
+      "description": "Variation of QS where pattern characters are scanned from the one which will lead to a larger shift to the one which will lead to a shorter shift",
+      "relationship": [
+        "QS"
+      ],
+      "type": "CoC",
+      "papers": [
+        96
+      ]
+    },
+    {
+      "name": "Apostolico-Crochemore",
+      "id": "AC",
+      "date": 1991,
+      "description": "Modification of KMP. It performs at most 3n/2 characters inspections in the worst case.",
+      "relationship": [
+        "KMP"
+      ],
+      "type": "CoC",
+      "papers": [
+        6
+      ]
+    },
+    {
+      "name": "Two-Way",
+      "id": "TW",
+      "date": 1991,
+      "description": "Linear algorithm in the worst case. Divides the pattern in two factors. It proceeds from left to right while scanning the left factor, and proceeds from right to left while scanning the right factor. It inspects at most 2n − m characters.",
+      "relationship": [],
+      "type": "CoC",
+      "papers": [
+        34
+      ]
+    },
+    {
+      "name": "Tuned-Boyer-Moore",
+      "id": "TunBM",
+      "date": 1991,
+      "description": "Variant of HOR? which introduces a fast loop with unrolled blind shifts.",
+      "relationship": [
+        "HOR"
+      ],
+      "type": "CoC",
+      "papers": [
+        69,
+        70
+      ]
+    },
+    {
+      "name": "Colussi",
+      "id": "COL",
+      "date": 1991,
+      "description": "Refinement of KMP using a 2-factorization of the pattern.",
+      "relationship": [
+        "KMP"
+      ],
+      "type": "CoC",
+      "papers": [
+        29
+      ]
+    },
+    {
+      "name": "Smith",
+      "id": "SMITH",
+      "date": 1991,
+      "description": "Combination of HOR and QS which takes the maximum of the shifts proposed by the two occurrences heuristics.",
+      "relationship": [
+        "HOR",
+        "QS"
+      ],
+      "type": "CoC",
+      "papers": [
+        93
+      ]
+    },
+    {
+      "name": "Galil-Giancarlo",
+      "id": "GG",
+      "date": 1992,
+      "description": "Refinement of COL which performs at most 4n/3 inspections in the worst case.",
+      "relationship": [
+        "COL"
+      ],
+      "type": "CoC",
+      "papers": [
+        59
+      ]
+    },
+    {
+      "name": "Raita",
+      "id": "RAITA",
+      "date": 1992,
+      "description": "Modification of HOR. It first compare the last character, then the first, and finally the middle character. If no mismatch occurs all other characters are compared.",
+      "relationship": [
+        "HOR"
+      ],
+      "type": "CoC",
+      "papers": [
+        88
+      ]
+    },
+    {
+      "name": "String-Matching on Ordered Alphabet",
+      "id": "SMOA",
+      "date": 1992,
+      "description": "It uses constant extra space and achieves a linear time complexity. It inspects at most 6n + 5 characters.",
+      "relationship": [],
+      "type": "CoC",
+      "papers": [
+        32
+      ]
+    },
+    {
+      "name": "Turbo-Boyer-Moore",
+      "id": "TBM",
+      "date": 1992,
+      "description": "Improvement of BM. It remembers characters inspected in the previous attempt. It performs at most 2n character inspections.",
+      "relationship": [
+        "BM"
+      ],
+      "type": "CoC",
+      "papers": [
+        53,
+        33
+      ]
+    },
+    {
+      "name": "Not-So-Naive",
+      "id": "NSN",
+      "date": 1993,
+      "description": "Improvement of BF. It uses constant extra space and works in O(nm)-time",
+      "relationship": [
+        "BF"
+      ],
+      "type": "CoC",
+      "papers": [
+        62
+      ]
+    },
+    {
+      "name": "Reverse-Colussi",
+      "id": "RCOL",
+      "date": 1994,
+      "description": "Combination of COL and BM. It works in linear time and performs at most 2n character inspections.",
+      "relationship": [
+        "COL",
+        "BM"
+      ],
+      "type": "CoC",
+      "papers": [
+        30
+      ]
+    },
+    {
+      "name": "Skip-Search",
+      "id": "SKIP",
+      "date": 1998,
+      "description": "It introduces the use of buckets of positions for each character of the alphabet. It works in O(nm)-time but has a linear average behavior.",
+      "relationship": [],
+      "type": "CoC",
+      "papers": [
+        28
+      ]
+    },
+    {
+      "name": "Alpha-Skip-Search",
+      "id": "ASKIP",
+      "date": 1998,
+      "description": "Improvement of SKIP. It uses buckets of positions for each factor of length log σ(m) of the pattern.",
+      "relationship": [
+        "SKIP"
+      ],
+      "type": "CoC",
+      "papers": [
+        28
+      ]
+    },
+    {
+      "name": "Knuth-Morris-Pratt Skip-Search",
+      "id": "KMPS",
+      "date": 1998,
+      "description": "Improvement of SKIP using shift tables in MP and KMP",
+      "relationship": [
+        "SKIP",
+        "MP",
+        "KMP"
+      ],
+      "type": "CoC",
+      "papers": [
+        28
+      ]
+    },
+    {
+      "name": "Berry-Ravindran",
+      "id": "BR",
+      "date": 1999,
+      "description": "Combination of QS and ZT. It uses the two consecutive characters, after the current window, for computing the occurrence heuristics.",
+      "relationship": [
+        "QS",
+        "ZT"
+      ],
+      "type": "CoC",
+      "papers": [
+        15
+      ]
+    },
+    {
+      "name": "Ahmed-Kaykobad-Chowdhury",
+      "id": "AKC",
+      "date": 2003,
+      "description": "Variant of AG that remembers all the suffixes of the pattern found in the text and that computes the shifts accordingly at the end of each attempt.",
+      "relationship": [
+        "AG"
+      ],
+      "type": "CoC",
+      "papers": [
+        1
+      ]
+    },
+    {
+      "name": "Fast-Search",
+      "id": "FS",
+      "date": 2003,
+      "description": "Improvement of BM. It uses the occurrence heuristics when the mismatch occurs during the first comparison.",
+      "relationship": [
+        "BM"
+      ],
+      "type": "CoC",
+      "papers": [
+        21,
+        22
+      ]
+    },
+    {
+      "name": "Forward-Fast-Search",
+      "id": "FFS",
+      "date": 2004,
+      "description": "Combination of FS and QS. It computes the good-suffix using information about the character following the current window of the text.",
+      "relationship": [
+        "FS",
+        "QS"
+      ],
+      "type": "CoC",
+      "papers": [
+        22
+      ]
+    },
+    {
+      "name": "Backward-Fast-Search",
+      "id": "BFS",
+      "date": 2004,
+      "description": "Combination of BM and HOR. It computes the good-suffix heuristics using information about the mismatching character.",
+      "relationship": [
+        "BM",
+        "HOR"
+      ],
+      "type": "CoC",
+      "papers": [
+        22
+      ]
+    },
+    {
+      "name": "Tailed-Substring",
+      "id": "TS",
+      "date": 2004,
+      "description": "Improvement of BF using a variant of the occurrence heuristics in HOR. It uses constant extra space.",
+      "relationship": [
+        "BF",
+        "HOR"
+      ],
+      "type": "CoC",
+      "papers": [
+        19
+      ]
+    },
+    {
+      "name": "Sheik-Sumit-Anindya-Balakrishnan-Sekar",
+      "id": "SSABS",
+      "date": 2004,
+      "description": "Combination of QS and RAITA",
+      "relationship": [
+        "QS",
+        "RAITA"
+      ],
+      "type": "CoC",
+      "papers": [
+        91
+      ]
+    },
+    {
+      "name": "Thathoo-Virmani-Sai-Balakrishnan-Sekar ",
+      "id": "TVSBS",
+      "date": 2006,
+      "description": "Combination of SSABS and BR",
+      "relationship": [
+        "SSABS",
+        "BR"
+      ],
+      "type": "CoC",
+      "papers": [
+        66
+      ]
+    },
+    {
+      "name": "Boyer-Moore-Horspool using Probabilities ",
+      "id": "PBMH",
+      "date": 2006,
+      "description": "Combination of OM and HOR",
+      "relationship": [
+        "OM",
+        "HOR"
+      ],
+      "type": "CoC",
+      "papers": [
+        84
+      ]
+    },
+    {
+      "name": "Franek-Jennings-Smyth",
+      "id": "FJS",
+      "date": 2007,
+      "description": "Combination of KMP and QS",
+      "relationship": [
+        "KMP",
+        "QS"
+      ],
+      "type": "CoC",
+      "papers": [
+        54,
+        55
+      ]
+    },
+    {
+      "name": "2-Block Boyer-Moore",
+      "id": "2BLOCK",
+      "date": 2007,
+      "description": "Improvement of BM performing a constant number of inspections in the worst case.",
+      "relationship": [
+        "BM"
+      ],
+      "type": "CoC",
+      "papers": [
+        97
+      ]
+    },
+    {
+      "name": "Wu-Manber for Single Pattern Matching",
+      "id": "HASHq",
+      "date": 2007,
+      "description": "Improvement of HOR using a super alphabet. It computes a fingerprint of each q-gram in the pattern using an hash function.",
+      "relationship": [
+        "HOR"
+      ],
+      "type": "CoC",
+      "papers": [
+        78
+      ]
+    },
+    {
+      "name": "Boyer-Moore-Horspool with q-grams",
+      "id": "BMHq",
+      "date": 2007,
+      "description": "Improvement of HOR using a super alphabet. It computes computes the occurrence heuristics reading q-grams in a single operation.",
+      "relationship": [
+        "HOR"
+      ],
+      "type": "CoC",
+      "papers": [
+        72
+      ]
+    },
+    {
+      "name": "Two Sliding Windows",
+      "id": "TSW",
+      "date": 2008,
+      "description": "Improvement of QS using two sliding windows. The first windows slides from left to right while the second slides from right to left.",
+      "relationship": [
+        "QS"
+      ],
+      "type": "CoC",
+      "papers": [
+        67
+      ]
+    },
+    {
+      "name": "Genomic Rapid Algo for String Pm",
+      "id": "GRASPm",
+      "date": 2009,
+      "description": "Modification of HOR. It improve the original algorithm using a filtering method based on an hash function computed on 2-grams in the pattern.",
+      "relationship": [
+        "HOR"
+      ],
+      "type": "CoC",
+      "papers": [
+        36
+      ]
+    },
+    {
+      "name": "Bounded Boyer-Moore",
+      "id": "BBM",
+      "date": 2010,
+      "description": "Improvement of BM using a bounded good-suffix heuristics with constant extra space.",
+      "relationship": [
+        "BM"
+      ],
+      "type": "CoC",
+      "papers": [
+        20
+      ]
+    },
+    {
+      "name": "Bounded Fast-Search",
+      "id": "BFS1",
+      "date": 2010,
+      "description": "Improvement of FS using a bounded good-suffix heuristics with constant extra space.",
+      "relationship": [
+        "FS"
+      ],
+      "type": "CoC",
+      "papers": [
+        20
+      ]
+    },
+    {
+      "name": "Bounded Forward-Fast-Search",
+      "id": "BFFS",
+      "date": 2010,
+      "description": "Improvement of FFS using a bounded forward-good-suffix heuristics with constant extra space.",
+      "relationship": [
+        "FFS"
+      ],
+      "type": "CoC",
+      "papers": [
+        20
+      ]
+    },
+    {
+      "name": "Fast-Search using Multiple Windows",
+      "id": "FSw",
+      "date": 2012,
+      "description": "mprovement of FS using multiple sliding windows. Windows slides from left to right and from right to left.",
+      "relationship": [
+        "FS"
+      ],
+      "type": "CoC",
+      "papers": [
+        51
+      ]
+    },
+    {
+      "name": "TVSBS using Multiple Windows ",
+      "id": "TVSBSw",
+      "date": 2012,
+      "description": "mprovement of TVSBS using multiple sliding windows. Windows slides from left to right and from right to left.",
+      "relationship": [
+        "TVSBS"
+      ],
+      "type": "CoC",
+      "papers": [
+        51
+      ]
+    },
+    {
+      "name": "Max Shift Boyer-Moore",
+      "id": "MSBM",
+      "date": 2012,
+      "description": "Combination of BM and HOR. It takes the maximum shift proposed by the two occurrence heuristics.",
+      "relationship": [
+        "BM",
+        "HOR"
+      ],
+      "type": "CoC",
+      "papers": [
+        89
+      ]
+    },
+    {
+      "name": "Max Shift Horspool",
+      "id": "MSH",
+      "date": 2012,
+      "description": "Combination of BM and HOR. It takes the maximum shift proposed by the two occurrence heuristics.",
+      "relationship": [
+        "BM",
+        "HOR"
+      ],
+      "type": "CoC",
+      "papers": [
+        89
+      ]
+    },
+    {
+      "name": "Enhanced Two Sliding Windows",
+      "id": "ETSW",
+      "date": 2012,
+      "description": "Combination of TSW and BR",
+      "relationship": [
+        "TSW",
+        "BR"
+      ],
+      "type": "CoC",
+      "papers": [
+        71
+      ]
+    },
+    {
+      "name": "HASHq using Multiple Hashing Functions",
+      "id": "MHASHq",
+      "date": 2012,
+      "description": "Improvement of HASHq using multiple hash functions in order to reduce the number false positives.",
+      "relationship": [
+        "HASHq"
+      ],
+      "type": "CoC",
+      "papers": [
+        49
+      ]
+    },
+    {
+      "name": "Enhanced Berry-Ravindran",
+      "id": "RSA",
+      "date": 2012,
+      "description": "Variant of BR using four characters to compute the occurrence heuristics.",
+      "relationship": [
+        "BR"
+      ],
+      "type": "CoC",
+      "papers": [
+        90
+      ]
+    },
+    {
+      "name": "Enhanced RS-A",
+      "id": "ERSA",
+      "date": 2013,
+      "description": "Combination of RSA and TSW",
+      "relationship": [
+        "RSA",
+        "TSW"
+      ],
+      "type": "CoC",
+      "papers": [
+        94
+      ]
+    },
+    {
+      "name": "Improved Occurrence Heuristics",
+      "id": "IOM",
+      "date": 2013,
+      "description": "Improvement of HOR. It uses an improvement of the occurrence heuristics.",
+      "relationship": [
+        "HOR"
+      ],
+      "type": "CoC",
+      "papers": [
+        23,
+        24
+      ]
+    },
+    {
+      "name": "Worst Occurrence Heuristics",
+      "id": "WOM",
+      "date": 2013,
+      "description": "Improvement of HOR. It computes the occurrence heuristics on the positions which leads to the average maximal shift.",
+      "relationship": [
+        "HOR"
+      ],
+      "type": "CoC",
+      "papers": [
+        23,
+        24
+      ]
+    },
+    {
+      "name": "Jumping Occurrence Heuristics",
+      "id": "JOM",
+      "date": 2013,
+      "description": "Improvement of BR. It computes the occurrence heuristics on two non consecutive characters with a distance depending on the average maximal shift.",
+      "relationship": [
+        "BR"
+      ],
+      "type": "CoC",
+      "papers": [
+        23,
+        24
+      ]
+    },
+    {
+      "name": "Simple String Matching",
+      "id": "SSM",
+      "date": 2015,
+      "description": "Modification of HOR. It scans the text from left to right and matches the pattern from right to left.",
+      "relationship": [
+        "HOR"
+      ],
+      "type": "CoC",
+      "papers": [
+        2
+      ]
+    },
+    {
+      "name": "Quantum Leap Quick-Search",
+      "id": "QLQS",
+      "date": 2015,
+      "description": "Improvement of QS. It improves the shift performed by the occurrence heuristics by computing the shift to left performed by the reverse of the pattern at a given fixed distance from the current window.",
+      "relationship": [
+        "QS"
+      ],
+      "type": "CoC",
+      "papers": [
+        98
+      ]
+    },
+    {
+      "name": "Enhanced ERS-A",
+      "id": "EERSA",
+      "date": 2015,
+      "description": "Combination of ERSA and ETSW",
+      "relationship": [
+        "ERSA",
+        "ETSW"
+      ],
+      "type": "CoC",
+      "papers": [
+        95
+      ]
+    },
+    {
+      "name": "Four Sliding Windows",
+      "id": "FSW",
+      "date": 2015,
+      "description": "Improvement of ERSA using four sliding windows",
+      "relationship": [
+        "ERSA"
+      ],
+      "type": "CoC",
+      "papers": [
+        68
+      ]
+    },
+    {
+      "name": "Skip-Search using q-grams",
+      "id": "SKIPq",
+      "date": 2016,
+      "description": "Combination of SKIP and HASHq. It computes buckets of positions for the fingerprint of each q-gram in the pattern.",
+      "relationship": [
+        "SKIP",
+        "HASHq"
+      ],
+      "type": "CoC",
+      "papers": [
+        43
+      ]
+    },
+    {
+      "name": "Deterministic-Finite-Automaton",
+      "id": "DFA",
+      "date": null,
+      "description": "Linear algorithm using a deterministic finite state automaton recognizing all string whose suffix is equal to the pattern. Construction of the automaton can be done in O(m)-time.",
+      "relationship": [],
+      "type": "A",
+      "papers": [
+        31
+      ]
+    },
+    {
+      "name": "Reverse-Factor",
+      "id": "RF",
+      "date": 1992,
+      "description": "Combination of DFA and BM. It uses the suffix automaton of the reverse of the pattern. It works in O(nm) worst case time.",
+      "relationship": [
+        "DFA",
+        "BM"
+      ],
+      "type": "A",
+      "papers": [
+        77
+      ]
+    },
+    {
+      "name": "Simon",
+      "id": "SIM",
+      "date": 1994,
+      "description": "Modification of DFA. It uses the minimal automaton of the pattern.",
+      "relationship": [
+        "DFA"
+      ],
+      "type": "A",
+      "papers": [
+        92
+      ]
+    },
+    {
+      "name": "Turbo-Reverse-Factor",
+      "id": "TRF",
+      "date": 1994,
+      "description": "Refinement of RF. It remembers the characters matched in the previuos attempt. It’s complexity id O(n) in time.",
+      "relationship": [
+        "RF"
+      ],
+      "type": "A",
+      "papers": [
+        33
+      ]
+    },
+    {
+      "name": "Forward-DAWG-Matching",
+      "id": "FDM",
+      "date": 1994,
+      "description": "It is a linear algorithm using the suffix automaton of the pattern.",
+      "relationship": [],
+      "type": "A",
+      "papers": [
+        35
+      ]
+    },
+    {
+      "name": "Backward-DAWG-Matching",
+      "id": "BDM",
+      "date": 1994,
+      "description": "Variant of RF. It uses the Directed Acyclic Word Graph of the pattern.",
+      "relationship": [
+        "RF"
+      ],
+      "type": "A",
+      "papers": [
+        35
+      ]
+    },
+    {
+      "name": "Backward-Oracle-Matching",
+      "id": "BOM",
+      "date": 1999,
+      "description": "Variant of RF. It uses the Factor Oracle of the pattern. It is the first filtering algorithm using automata.",
+      "relationship": [
+        "RF"
+      ],
+      "type": "A",
+      "papers": [
+        3
+      ]
+    },
+    {
+      "name": "Double Forward DAWG Matching",
+      "id": "DFDM",
+      "date": 2000,
+      "description": "Modification of FDM. It works in linear worst case time using a DAWG of the pattern and a DAWG of the reverse of the pattern.",
+      "relationship": [
+        "FDM"
+      ],
+      "type": "A",
+      "papers": [
+        4,
+        5
+      ]
+    },
+    {
+      "name": "Wide Window",
+      "id": "WW",
+      "date": 2005,
+      "description": "Combination of FDM and RF. It uses the suffix automaton of the pattern and the prefix automaton of the reverse of the pattern. It has a linear worst case time complexity.",
+      "relationship": [
+        "FDM",
+        "RF"
+      ],
+      "type": "A",
+      "papers": [
+        63
+      ]
+    },
+    {
+      "name": "Linear DAWG Matching",
+      "id": "LDM",
+      "date": 2005,
+      "description": "Combination of BDM and DFA. It uses the suffix automaton of the reverse of the pattern deterministic finite state automaton of the pattern.",
+      "relationship": [
+        "BDM",
+        "DFA"
+      ],
+      "type": "A",
+      "papers": [
+        63
+      ]
+    },
+    {
+      "name": "Improved Linear DAWG Matching",
+      "id": "ILDM1",
+      "date": 2006,
+      "description": "Improvement of LDM.",
+      "relationship": [
+        "LDM"
+      ],
+      "type": "A",
+      "papers": [
+        79
+      ]
+    },
+    {
+      "name": "Improved Linear DAWG Matching 2",
+      "id": "ILDM2",
+      "date": 2006,
+      "description": "Improvement of LDM.",
+      "relationship": [
+        "LDM"
+      ],
+      "type": "A",
+      "papers": [
+        79
+      ]
+    },
+    {
+      "name": "Extended Backward Oracle Matching",
+      "id": "EBOM",
+      "date": 2008,
+      "description": "Improvement of BOM. It performs transitions of two characters at each step.",
+      "relationship": [
+        "BOM"
+      ],
+      "type": "A",
+      "papers": [
+        46,
+        47
+      ]
+    },
+    {
+      "name": "Forward Backward Oracle Matching",
+      "id": "FBOM",
+      "date": 2008,
+      "description": "Combination of EBOM and QS. It performs transitions using the characters which follows the current window of the text.",
+      "relationship": [
+        "EBOM",
+        "QS"
+      ],
+      "type": "A",
+      "papers": [
+        46,
+        47
+      ]
+    },
+    {
+      "name": "Succint Backward DAWG Matching",
+      "id": "SBDM",
+      "date": 2008,
+      "description": "Variant of BDM. It is based on the combination of compressed self-indexes and BDM.",
+      "relationship": [
+        "BDM"
+      ],
+      "type": "A",
+      "papers": [
+        57
+      ]
+    },
+    {
+      "name": "Simplified Extended Backward Oracle Matching",
+      "id": "SEBOM",
+      "date": 2009,
+      "description": "Simplification of EBOM.",
+      "relationship": [
+        "EBOM"
+      ],
+      "type": "A",
+      "papers": [
+        40
+      ]
+    },
+    {
+      "name": "Simplified Forward Backward Oracle Matching",
+      "id": "SFBOM",
+      "date": 2009,
+      "description": "Simplification of FBOM.",
+      "relationship": [
+        "FBOM"
+      ],
+      "type": "A",
+      "papers": [
+        40
+      ]
+    },
+    {
+      "name": "Backward SNR DAWG Matching",
+      "id": "BSDM",
+      "date": 2012,
+      "description": "Modification of BDM. It uses the DAWG constructed on the longest substring of the pattern with no repetitions of characters.",
+      "relationship": [
+        "BDM"
+      ],
+      "type": "A",
+      "papers": [
+        50
+      ]
+    },
+    {
+      "name": "BSDM using q-grams and shift-xor",
+      "id": "BSDMqx",
+      "date": 2016,
+      "description": "Variant of BSDM. It computes the DAWG assuming a super alphabet on q-grams of the pattern. The q-grams are associated to a fingerprint value computed by using a shift-xor hash function.",
+      "relationship": [
+        "BSDM"
+      ],
+      "type": "A",
+      "papers": [
+        42
+      ]
+    },
+    {
+      "name": "BSDMqx using multiple windows",
+      "id": "BSDMqxw",
+      "date": 2016,
+      "description": "Improvement of BSDMqx which uses multiple sliding windows.",
+      "relationship": [
+        "BSDMqx"
+      ],
+      "type": "A",
+      "papers": [
+        42
+      ]
+    },
+    {
+      "name": "Shift-Or",
+      "id": "SO",
+      "date": 1989,
+      "description": "Simulates the nondeterministic version of the automaton in DFA.",
+      "relationship": [
+        "DFA"
+      ],
+      "type": "BP",
+      "papers": [
+        8,
+        9
+      ]
+    },
+    {
+      "name": "Shift-And",
+      "id": "SA",
+      "date": 1989,
+      "description": "Simulates the nondeterministic version of the automaton in DFA.",
+      "relationship": [
+        "DFA"
+      ],
+      "type": "BP",
+      "papers": [
+        8,
+        9
+      ]
+    },
+    {
+      "name": "Backward-Nondeterministic-DAWG-Matching",
+      "id": "BNDM",
+      "date": 1998,
+      "description": "imulates the nondeterministic version of the automaton in BDM.",
+      "relationship": [
+        "BDM"
+      ],
+      "type": "BP",
+      "papers": [
+        82
+      ]
+    },
+    {
+      "name": "BNDM for Long patterns",
+      "id": "BNDML",
+      "date": 2000,
+      "description": "Modification of BNDM using multiple words for simulating the nondeterministic automata of long patterns.",
+      "relationship": [
+        "BNDM"
+      ],
+      "type": "BP",
+      "papers": [
+        83
+      ]
+    },
+    {
+      "name": "Simplified BNDM",
+      "id": "SBNDM",
+      "date": 2003,
+      "description": "Improvement of BNDM.",
+      "relationship": [
+        "BNDM"
+      ],
+      "type": "BP",
+      "papers": [
+        85,
+        81
+      ]
+    },
+    {
+      "name": "Two-Way Nondeterministic DAWG Matching",
+      "id": "TNDM",
+      "date": 2003,
+      "description": "A two-way modification of BNDM. It scans a pattern suffix forward before normal backward scan.",
+      "relationship": [
+        "BNDM"
+      ],
+      "type": "BP",
+      "papers": [
+        85
+      ]
+    },
+    {
+      "name": "Long patterns BNDM",
+      "id": "LBNDM",
+      "date": 2003,
+      "description": "Modification of BNDM for long patterns. The automaton is constructed over a superimposed pattern constructed on the m/w consecutive factors of the inout pattern.",
+      "relationship": [
+        "BNDM"
+      ],
+      "type": "BP",
+      "papers": [
+        85
+      ]
+    },
+    {
+      "name": "Shift Vector Matching",
+      "id": "SVM",
+      "date": 2003,
+      "description": "Implementation of BM using bit parallelism. It remembers characters matched during the last attempt.",
+      "relationship": [
+        "BM"
+      ],
+      "type": "BP",
+      "papers": [
+        85
+      ]
+    },
+    {
+      "name": "BNDM with loop-unrolling",
+      "id": "BNDM2",
+      "date": 2005,
+      "description": "Improvement of BNDM using a blind enrolled loop.",
+      "relationship": [
+        "BNDM"
+      ],
+      "type": "BP",
+      "papers": [
+        64
+      ]
+    },
+    {
+      "name": "Simplified BNDM with loop-unrolling",
+      "id": "SBNDM2",
+      "date": 2005,
+      "description": "Improvement of SBNDM using a blind enrolled loop.",
+      "relationship": [
+        "SBNDM"
+      ],
+      "type": "BP",
+      "papers": [
+        64
+      ]
+    },
+    {
+      "name": "BNDM with Horspool Shift",
+      "id": "BNDMBMH",
+      "date": 2005,
+      "description": "Combination of BNDM and HOR",
+      "relationship": [
+        "BNDM",
+        "HOR"
+      ],
+      "type": "BP",
+      "papers": [
+        64
+      ]
+    },
+    {
+      "name": "Horspool with BNDM test",
+      "id": "BMHBNDM",
+      "date": 2005,
+      "description": "Combination of BNDM and HOR",
+      "relationship": [
+        "BNDM",
+        "HOR"
+      ],
+      "type": "BP",
+      "papers": [
+        64
+      ]
+    },
+    {
+      "name": "Forward Nondeterministic DAWG Matching",
+      "id": "FNDM",
+      "date": 2005,
+      "description": "Simulates the nondeterministic version of the automaton in FDM",
+      "relationship": [
+        "FDM"
+      ],
+      "type": "BP",
+      "papers": [
+        64
+      ]
+    },
+    {
+      "name": "Bit parallel Wide Window",
+      "id": "BWW",
+      "date": 2005,
+      "description": "Simulates the nondeterministic version of the automaton in WW.",
+      "relationship": [
+        "WW"
+      ],
+      "type": "BP",
+      "papers": [
+        63
+      ]
+    },
+    {
+      "name": "Average Optimal Shift-Or",
+      "id": "AOSO",
+      "date": 2005,
+      "description": "Variant of SO using a superimposed pattern. It improves the original algorithm by shifting of more than one position during the scan.",
+      "relationship": [
+        "SO"
+      ],
+      "type": "BP",
+      "papers": [
+        58
+      ]
+    },
+    {
+      "name": "Fast Average Optimal Shift-Or",
+      "id": "FAOSO",
+      "date": 2005,
+      "description": "Practical improvement of AOSO.",
+      "relationship": [
+        "AOSO"
+      ],
+      "type": "BP",
+      "papers": [
+        58
+      ]
+    },
+    {
+      "name": "Forward BNDM",
+      "id": "FBNDM",
+      "date": 2008,
+      "description": "Simulates the nondeterministic version of the automaton in FBOM.",
+      "relationship": [
+        "FBOM"
+      ],
+      "type": "BP",
+      "papers": [
+        46,
+        47
+      ]
+    },
+    {
+      "name": "Forward Simplified BNDM",
+      "id": "FSBNDM",
+      "date": 2008,
+      "description": "Combination of SBNDM and FBNDM.",
+      "relationship": [
+        "SBNDM",
+        "FBNDM"
+      ],
+      "type": "BP",
+      "papers": [
+        46,
+        47
+      ]
+    },
+    {
+      "name": "Bit-Parallel Length Invariant Matcher",
+      "id": "BLIM",
+      "date": 2008,
+      "description": "Quadratic worst case time algorithm using multiple words.",
+      "relationship": [],
+      "type": "BP",
+      "papers": [
+        75
+      ]
+    },
+    {
+      "name": "BNDM with q-grams",
+      "id": "BNDMq",
+      "date": 2009,
+      "description": "Variant of BNDM using a super alphabet implemented with q-grams.",
+      "relationship": [
+        "BNDM"
+      ],
+      "type": "BP",
+      "papers": [
+        38
+      ]
+    },
+    {
+      "name": "Simplified BNDM with q-grams ",
+      "id": "SBNDMq",
+      "date": 2009,
+      "description": "Variant of SBNDM using a super alphabet implemented with q-grams.",
+      "relationship": [
+        "SBNDM"
+      ],
+      "type": "BP",
+      "papers": [
+        38
+      ]
+    },
+    {
+      "name": "FNDM with q-grams",
+      "id": "UFNDMq",
+      "date": 2009,
+      "description": "Implementation of FNDM using q-grams.",
+      "relationship": [
+        "FNDM"
+      ],
+      "type": "BP",
+      "papers": [
+        38
+      ]
+    },
+    {
+      "name": "Small Alphabet Bit-Parallel",
+      "id": "SABP",
+      "date": 2009,
+      "description": "Bit Parallel algorithm designed for searching string over small alphabets. It is based on a position related character matching table.",
+      "relationship": [],
+      "type": "BP",
+      "papers": [
+        100
+      ]
+    },
+    {
+      "name": "BNDM with Extended Shifts",
+      "id": "BXS",
+      "date": 2010,
+      "description": "Modification of BNDM for long patterns. The automaton is constructed over a superimposed pattern constructed on the m/w consecutive factors of the input pattern.",
+      "relationship": [
+        "BNDM"
+      ],
+      "type": "BP",
+      "papers": [
+        39
+      ]
+    },
+    {
+      "name": "BNDMq Long",
+      "id": "BQL",
+      "date": 2010,
+      "description": "Modification of BNDM for long patterns. It increases the effective alphabet size by using overlapping q-grams.",
+      "relationship": [
+        "BNDM"
+      ],
+      "type": "BP",
+      "papers": [
+        39
+      ]
+    },
+    {
+      "name": "Q-Gram Filtering",
+      "id": "QF",
+      "date": 2010,
+      "description": "It uses a filtering approach based on consecutive q-grams in the text.",
+      "relationship": [],
+      "type": "BP",
+      "papers": [
+        39
+      ]
+    },
+    {
+      "name": "Bit-Parallel2 Wide-Window",
+      "id": "BP2WW",
+      "date": 2010,
+      "description": "Improvement of WW using two sliding windows inspected in parallel",
+      "relationship": [
+        "WW"
+      ],
+      "type": "BP",
+      "papers": [
+        25
+      ]
+    },
+    {
+      "name": "Bit-Parallel Wide-Window2",
+      "id": "BPWW2",
+      "date": 2010,
+      "description": "Improvement of WW using two sliding windows inspected in parallel",
+      "relationship": [
+        "WW"
+      ],
+      "type": "BP",
+      "papers": [
+        25
+      ]
+    },
+    {
+      "name": "Factorized Shift-And",
+      "id": "KSA",
+      "date": 2010,
+      "description": "Simulates the nondeterministic version of the automaton in DFA using a more compact representation of the automaton. It is based on a factorization of the pattern.",
+      "relationship": [
+        "DFA"
+      ],
+      "type": "BP",
+      "papers": [
+        26,
+        27
+      ]
+    },
+    {
+      "name": "Factorized BNDM",
+      "id": "KBNDM",
+      "date": 2010,
+      "description": "Simulates the nondeterministic version of the automaton in BNDM using a more compact representation of the automaton. It is based on a factorization of the pattern.",
+      "relationship": [
+        "BNDM"
+      ],
+      "type": "BP",
+      "papers": [
+        26,
+        27
+      ]
+    },
+    {
+      "name": "Forward SBNDM using q-grams and Lookahead",
+      "id": "FSBNDMqf",
+      "date": 2011,
+      "description": "Improvement of FSBNDM which implements a super alphabet with q-grams and computing the shift with a lookahead of several characters.",
+      "relationship": [
+        "FSBNDM"
+      ],
+      "type": "BP",
+      "papers": [
+        86,
+        87
+      ]
+    },
+    {
+      "name": "SBNDM using Multiple Windows",
+      "id": "SBNDMw",
+      "date": 2012,
+      "description": "Improvement of SBNDM using multiple sliding windows.",
+      "relationship": [
+        "SBNDM"
+      ],
+      "type": "BP",
+      "papers": [
+        51
+      ]
+    },
+    {
+      "name": "Forward SBNDM using Multiple Windows",
+      "id": "FSBNDMw",
+      "date": 2012,
+      "description": "Improvement of FSBNDM using multiple sliding windows.",
+      "relationship": [
+        "FSBNDM"
+      ],
+      "type": "BP",
+      "papers": [
+        51
+      ]
+    },
+    {
+      "name": "Improved Two-Way Shift-And",
+      "id": "TSA",
+      "date": 2014,
+      "description": "Improvement of SA using several sliding windows inspected in parallel.",
+      "relationship": [
+        "SA"
+      ],
+      "type": "BP",
+      "papers": [
+        37
+      ]
+    },
+    {
+      "name": "Improved Two-Way Shift-Or",
+      "id": "TSO",
+      "date": 2014,
+      "description": "Improvement of SO using several sliding windows inspected in parallel.",
+      "relationship": [
+        "SO"
+      ],
+      "type": "BP",
+      "papers": [
+        37
+      ]
+    },
+    {
+      "name": "Two-Way Shift-And using q-grams",
+      "id": "TSAq",
+      "date": 2014,
+      "description": "Improvement of SA using several sliding windows inspected in parallel. It improves the performances by simulating a super alphabet with q-grams",
+      "relationship": [
+        "SA"
+      ],
+      "type": "BP",
+      "papers": [
+        37
+      ]
+    },
+    {
+      "name": "Two-Way Shift-Or using q-grams",
+      "id": "TSOq",
+      "date": 2014,
+      "description": "mprovement of SO using several sliding windows inspected in parallel. It improves the performances by simulating a super alphabet with q-grams",
+      "relationship": [
+        "SO"
+      ],
+      "type": "BP",
+      "papers": [
+        37
+      ]
+    },
+    {
+      "name": "Super Alphabet Simulation",
+      "id": "SAS",
+      "date": 2002,
+      "description": "General approach for packed string matching based on a tabulation technique.",
+      "relationship": [],
+      "type": "PSM",
+      "papers": [
+        56
+      ]
+    },
+    {
+      "name": "Packed String Search",
+      "id": "PSS",
+      "date": 2009,
+      "description": "Variant of KMP applied to packed string matching.",
+      "relationship": [
+        "KMP"
+      ],
+      "type": "PSM",
+      "papers": [
+        16,
+        17
+      ]
+    },
+    {
+      "name": "Streaming SIMD Extensions Filter",
+      "id": "SSEF",
+      "date": 2009,
+      "description": "Extension of SKIP to packed string matching. It is implemented using SSE instructions. It works only for long patterns.",
+      "relationship": [
+        "SKIP"
+      ],
+      "type": "PSM",
+      "papers": [
+        76
+      ]
+    },
+    {
+      "name": "Packed Belazzougui",
+      "id": "PB",
+      "date": 2010,
+      "description": "Efficient packed string matching algorithm which works in O(n/α+occ)-time when α ≤ m ≤ n/α.",
+      "relationship": [],
+      "type": "PSM",
+      "papers": [
+        10,
+        11
+      ]
+    },
+    {
+      "name": "Packed Belazzougui-Raffinot",
+      "id": "PBR",
+      "date": 2010,
+      "description": "Efficient packed string matching algorithm which works in O(nm) worst case time complexity.",
+      "relationship": [],
+      "type": "PSM",
+      "papers": [
+        12
+      ]
+    },
+    {
+      "name": "Crochemore-Perrin algorithm using SSE instructions",
+      "id": "SSECP",
+      "date": 2011,
+      "description": "Modification of TW for packed string matching. It is based on two specialized packed string instructions.",
+      "relationship": [
+        "TW"
+      ],
+      "type": "PSM",
+      "papers": [
+        13,
+        14
+      ]
+    },
+    {
+      "name": "Exact Packed String Matching",
+      "id": "EPSM",
+      "date": 2013,
+      "description": "Improvement of SSEF. It uses SSE instruction to speed up searching. It consists in four different algorithms depending on the length of the pattern.",
+      "relationship": [
+        "SSEF"
+      ],
+      "type": "PSM",
+      "papers": [
+        44,
+        45
+      ]
+    }
+  ],
+  "pappers": [
+    "Ahmed, M., Kaykobad, M., Chowdhury, R.A.: A new string matching algorithm. Int. J. Comput. Math. 80(7), 825–834 (2003), http://dx.doi.org/10.1080/0020716031000087113",
+    "Al-Ssulami, A.M.: Hybrid string matching algorithm with a pivot. J. Information Science 41(1), 82–88 (2015), http://dx.doi.org/10.1177/0165551514555668",
+    "Allauzen, C., Crochemore, M., Raffinot, M.: Factor oracle: A new structure for pattern matching. In: Pavelka, J., Tel, G., Bartosek, M. (eds.) SOFSEM ’99, Theory and Practice of Informatics, 26th Conference on Current Trends in Theory and Practice of Informatics, Milovy, Czech Republic, November 27 - December 4, 1999, Proceedings. Lecture Notes in Computer Science, vol. 1725, pp. 295–310. Springer (1999), http://dx.doi.org/10.1007/3-540-47849-3_18",
+    "Allauzen, C., Raffinot, M.: Simple optimal string matching algorithm. In: Giancarlo, R., Sankoff, D. (eds.) Combinatorial Pattern Matching, 11th Annual Symposium, CPM 2000, Montreal, Canada, June 21-23, 2000, Proceedings. Lecture Notes in Computer Science, vol. 1848, pp. 364–374. Springer (2000), http://dx.doi.org/10.1007/3-540-45123-4_30",
+    "Allauzen, C., Raffinot, M.: Simple optimal string matching algorithm. J. Algorithms 36(1), 102–116 (2000), http://dx.doi.org/10.1006/jagm.2000.1087",
+    "Apostolico, A., Crochemore, M.: Optimal canonization of all substrings of a string. Inf. Comput. 95(1), 76–95 (1991), http://dx.doi.org/10.1016/0890-5401(91)90016-U",
+    "Apostolico, A., Giancarlo, R.: The boyer-moore-galil string searching strategies revisited. SIAM J. Comput. 15(1), 98–105 (1986), http://dx.doi.org/10.1137/0215007",
+    "Baeza-Yates, R.A., Gonnet, G.H.: A new approach to text searching. In: Belkin, N.J., van Rijsbergen, C.J. (eds.) SIGIR’89, 12th International Conference on Research and Development in Information Retrieval, Cambridge, Massachusetts, USA, June 25-28, 1989, Proceedings. pp. 168–175. ACM (1989), http://doi.acm.org/10.1145/75334.75352",
+    "Baeza-Yates, R.A., Gonnet, G.H.: A new approach to text searching. Commun. ACM 35(10), 74–82 (1992), http://doi.acm.org/10.1145/135239.135243",
+    "Belazzougui, D.: Worst case efficient single and multiple string matching in the RAM model. In: Iliopoulos, C.S., Smyth, W.F. (eds.) Combinatorial Algorithms - 21st International Workshop, IWOCA 2010, London, UK, July 26-28, 2010, Revised Selected Papers. Lecture Notes in Computer Science, vol. 6460, pp. 90–102. Springer (2010), http://dx.doi.org/10.1007/978-3-642-19222-7_10",
+    "Belazzougui, D.: Worst-case efficient single and multiple string matching on packed texts in the word-ram model. J. Discrete Algorithms 14, 91–106 (2012), http://dx.doi.org/10.1016/j.jda.2011.12.011",
+    "Belazzougui, D., Raffinot, M.: Average optimal string matching in packed strings. In: Spirakis, P.G., Serna, M.J. (eds.) Algorithms and Complexity, 8th International Conference, CIAC 2013, Barcelona, Spain, May 22-24, 2013. Proceedings. Lecture Notes in Computer Science, vol. 7878, pp. 37–48. Springer (2013), http://dx.doi.org/10.1007/978-3-642-38233-8_4",
+    "Ben-Kiki, O., Bille, P., Breslauer, D., Gasieniec, L., Grossi, R., Weimann, O.: Optimal packed string matching. In: Chakraborty, S., Kumar, A. (eds.) IARCS Annual Conference on Foundations of Software Technology and Theoretical Computer Science, FSTTCS 2011, December 12-14, 2011, Mumbai, India. LIPIcs, Exact Online String Matching Bibliography 17 vol. 13, pp. 423–432. Schloss Dagstuhl - Leibniz-Zentrum fuer Informatik (2011), http://dx.doi.org/10.4230/LIPIcs.FSTTCS.2011.423",
+    "Ben-Kiki, O., Bille, P., Breslauer, D., Gasieniec, L., Grossi, R., Weimann, O.: Towards optimal packed string matching. Theor. Comput. Sci. 525, 111–129 (2014), http://dx.doi.org/10.1016/j.tcs.2013.06.013",
+    "Berry, T., Ravindran, S.: A fast string matching algorithm and experimental results. In: Holub, J., Sim ́anek, M. (eds.) Proceedings of the Prague Stringology Club Workshop 1999, Prague, Czech Republic, July 8-9, 1999. pp. 16–28. Department of Computer Science and Engineering, Faculty of Electrical Engineering, Czech Technical University (1999), http://www.stringology.org/event/1999/p2.html",
+    "Bille, P.: Fast searching in packed strings. In: Kucherov, G., Ukkonen, E. (eds.) Combinatorial Pattern Matching, 20th Annual Symposium, CPM 2009, Lille, France, June 22-24, 2009, Proceedings. Lecture Notes in Computer Science, vol. 5577, pp. 116–126. Springer (2009), http://dx.doi.org/10.1007/978-3-642-02441-2_11",
+    "Bille, P.: Fast searching in packed strings. J. Discrete Algorithms 9(1), 49–56 (2011), http://dx.doi.org/10.1016/j.jda.2010.09.003",
+    "Boyer, R.S., Moore, J.S.: A fast string searching algorithm. Commun. ACM 20(10), 762–772 (1977), http://doi.acm.org/10.1145/359842.359859",
+    "Cantone, D., Faro, S.: Searching for a substring with constant extra-space complexity. In: Ferragina, P., Grossi, R. (eds.) Proc. of Third International Conference on Fun with algorithms. pp. 118–131 (2004)",
+    "Cantone, D., Cristofaro, S., Faro, S.: A space-efficient implementation of the goodsuffix heuristic. In: Holub, J., Zd ́arek, J. (eds.) Proceedings of the Prague Stringology Conference 2010, Prague, Czech Republic, August 30 - September 1, 2010. pp. 63–75. Prague Stringology Club, Department of Theoretical Computer Science, Faculty of Information Technology, Czech Technical University in Prague (2010), http://www.stringology.org/event/2010/p06.html",
+    "Cantone, D., Faro, S.: Fast-search: A new efficient variant of the boyer-moore string matching algorithm. In: Jansen, K., Margraf, M., Mastrolilli, M., Rolim, J.D.P. (eds.) Experimental and Efficient Algorithms, Second International Workshop, WEA 2003, Ascona, Switzerland, May 26-28, 2003, Proceedings. Lecture Notes in Computer Science, vol. 2647, pp. 47–58. Springer (2003), http://dx.doi.org/10.1007/3-540-44867-5_4",
+    "Cantone, D., Faro, S.: Fast-search algorithms: New efficient variants of the boyer-moore pattern-matching algorithm. Journal of Automata, Languages and Combinatorics 10(5/6), 589–608 (2005)",
+    "Cantone, D., Faro, S.: Improved and self-tuned occurrence heuristics. In: Holub, J., Zd ́arek, J. (eds.) Proceedings of the Prague Stringology Conference 2013, Prague, Czech Republic, September 2-4, 2013. pp. 92–106. Department of Theoretical Computer Science, Faculty of Information Technology, Czech Technical University in Prague (2013), http://www.stringology.org/event/2013/p09.html",
+    "Cantone, D., Faro, S.: Improved and self-tuned occurrence heuristics. J. Discrete Algorithms 28, 73–84 (2014), http://dx.doi.org/10.1016/j.jda.2014.07.006",
+    "Cantone, D., Faro, S., Giaquinta, E.: Bit-(parallelism)2: Getting to the next level of parallelism. In: Boldi, P., Gargano, L. (eds.) Fun with Algorithms, 5th International Conference, FUN 2010, Ischia, Italy, June 2-4, 2010. Proceedings. 18 Simone Faro Lecture Notes in Computer Science, vol. 6099, pp. 166–177. Springer (2010), http://dx.doi.org/10.1007/978-3-642-13122-6_18",
+    "Cantone, D., Faro, S., Giaquinta, E.: A compact representation of nondeterministic (suffix) automata for the bit-parallel approach. In: Amir, A., Parida, L. (eds.) Combinatorial Pattern Matching, 21st Annual Symposium, CPM 2010, New York, NY, USA, June 21-23, 2010. Proceedings. Lecture Notes in Computer Science, vol. 6129, pp. 288–298. Springer (2010), http://dx.doi.org/10.1007/978-3-642-13509-5_26",
+    "Cantone, D., Faro, S., Giaquinta, E.: A compact representation of nondeterministic (suffix) automata for the bit-parallel approach. Inf. Comput. 213, 3–12 (2012), http://dx.doi.org/10.1016/j.ic.2011.03.006",
+    "Charras, C., Lecroq, T., Pehoushek, J.D.: A very fast string matching algorithm for small alphabeths and long patterns (extended abstract). In: Farach-Colton [41], pp. 55–64, http://dx.doi.org/10.1007/BFb0030780",
+    "Colussi, L.: Correctness and efficiency of the pattern matching algorithms. Inf. Comput. 95(2), 225–251 (1991), http://dx.doi.org/10.1016/0890-5401(91)90046-5",
+    "Colussi, L.: Fastest pattern matching in strings. J. Algorithms 16(2), 163–189 (1994), http://dx.doi.org/10.1006/jagm.1994.1008",
+    "Cormen, T.H., Leiserson, C.E., Rivest, R.L., Stein, C.: Introduction to Algorithms (3. ed.). MIT Press (2009), http://mitpress.mit.edu/books/introduction-algorithms",
+    "Crochemore, M.: String-matching on ordered alphabets. Theor. Comput. Sci. 92(1), 33–47 (1992), http://dx.doi.org/10.1016/0304-3975(92)90134-2",
+    "Crochemore, M., Czumaj, A., Gasieniec, L., Jarominek, S., Lecroq, T., Plandowski, W., Rytter, W.: Speeding up two string-matching algorithms. Algorithmica 12(4/5), 247–267 (1994), http://dx.doi.org/10.1007/BF01185427",
+    "Crochemore, M., Perrin, D.: Two-way string matching. J. ACM 38(3), 651–675 (1991), http://doi.acm.org/10.1145/116825.116845",
+    "Crochemore, M., Rytter, W.: Text Algorithms. Oxford University Press (1994), http://www-igm.univ-mlv.fr/~mac/REC/B1.html",
+    "Deusdado, S.A.D., Carvalho, P.: Graspm: an efficient algorithm for exact patternmatching in genomic sequences. IJBRA 5(4), 385–401 (2009), http://dx.doi.org/10.1504/IJBRA.2009.027510",
+    "Durian, B., Chhabra, T., Ghuman, S.S., Hirvola, T., Peltola, H., Tarhio, J.: Improved two-way bit-parallel search. In: Holub, J., Zd ́arek, J. (eds.) Proceedings of the Prague Stringology Conference 2014, Prague, Czech Republic, September 1-3, 2014. pp. 71–83. Department of Theoretical Computer Science, Faculty of Information Technology, Czech Technical University in Prague (2014), http://www.stringology.org/event/2014/p08.html",
+    "Durian, B., Holub, J., Peltola, H., Tarhio, J.: Tuning BNDM with q-grams. In: Finocchi, I., Hershberger, J. (eds.) Proceedings of the Eleventh Workshop on Algorithm Engineering and Experiments, ALENEX 2009, New York, New York, USA, January 3, 2009. pp. 29–37. SIAM (2009), http://dx.doi.org/10.1137/1.9781611972894.3",
+    "Durian, B., Peltola, H., Salmela, L., Tarhio, J.: Bit-parallel search algorithms for long patterns. In: Festa, P. (ed.) Experimental Algorithms, 9th International Symposium, SEA 2010, Ischia Island, Naples, Italy, May 20-22, 2010. Proceedings. Lecture Notes in Computer Science, vol. 6049, pp. 129–140. Springer (2010), http://dx.doi.org/10.1007/978-3-642-13193-6_12",
+    "Fan, H., Yao, N., Ma, H.: Fast variants of the backward-oracle-marching algorithm. In: Proceedings of the 2009 Fourth International Conference on Internet Computing for Science and Engineering. pp. 56–59. ICICSE ’09, IEEE Computer Society, Washington, DC, USA (2009), http://dx.doi.org/10.1109/ICICSE.2009.53",
+    "Farach-Colton, M. (ed.): Combinatorial Pattern Matching, 9th Annual Symposium, CPM 98, Piscataway, New Jersey, USA, July 20-22, 1998, Proceedings, Lecture Notes in Computer Science, vol. 1448. Springer (1998)",
+    "Faro, S.: Evaluation and improvement of fast algorithms for exact matching on genome sequences. In: 3rd Internanional Conference on Algorithms for Computational Biology. Lecture Notes in Computer Science, Springer (2016)",
+    "Faro, S.: A very fast string matching algorithm based on condensed alphabets. In: Algorithmic Aspects in Information and Management - 10th International Conference, AAIM 2016. Proceedings. Lecture Notes in Computer Science, Springer (2016)",
+    "Faro, S., K ̈ulekci, M.O.: Fast packed string matching for short patterns. In: Sanders, P., Zeh, N. (eds.) Proceedings of the 15th Meeting on Algorithm Engineering and Experiments, ALENEX 2013, New Orleans, Louisiana, USA, January 7, 2013. pp. 113–121. SIAM (2013), http://dx.doi.org/10.1137/1.9781611972931.10",
+    "Faro, S., K ̈ulekci, M.O.: Fast and flexible packed string matching. J. Discrete Algorithms 28, 61–72 (2014), http://dx.doi.org/10.1016/j.jda.2014.07.003",
+    "Faro, S., Lecroq, T.: Efficient variants of the backward-oracle-matching algorithm. In: Holub, J., Zd ́arek, J. (eds.) Proceedings of the Prague Stringology Conference 2008, Prague, Czech Republic, September 1-3, 2008. pp. 146–160. Prague Stringology Club, Department of Computer Science and Engineering, Faculty of Electrical Engineering, Czech Technical University in Prague (2008), http://www.stringology.org/event/2008/p14.html",
+    "Faro, S., Lecroq, T.: Efficient variants of the backward-oracle-matching algorithm. Int. J. Found. Comput. Sci. 20(6), 967–984 (2009), http://dx.doi.org/10.1142/S0129054109006991",
+    "Faro, S., Lecroq, T.: The exact string matching problem: a comprehensive experimental evaluation. CoRR abs/1012.2547 (2010), http://arxiv.org/abs/1012.2547",
+    "Faro, S., Lecroq, T.: Fast searching in biological sequences using multiple hash functions. In: 12th IEEE International Conference on Bioinformatics & Bioengineering, BIBE 2012, Larnaca, Cyprus, November 11-13, 2012. pp. 175–180. IEEE Computer Society (2012), http://dx.doi.org/10.1109/BIBE.2012.6399669",
+    "Faro, S., Lecroq, T.: A fast suffix automata based algorithm for exact online string matching. In: Moreira, N., Reis, R. (eds.) Implementation and Application of Automata - 17th International Conference, CIAA 2012, Porto, Portugal, July 17-20, 2012. Proceedings. Lecture Notes in Computer Science, vol. 7381, pp. 149–158. Springer (2012), http://dx.doi.org/10.1007/978-3-642-31606-7_13",
+    "Faro, S., Lecroq, T.: A multiple sliding windows approach to speed up string matching algorithms. In: Klasing, R. (ed.) Experimental Algorithms - 11th International Symposium, SEA 2012, Bordeaux, France, June 7-9, 2012. Proceedings. Lecture Notes in Computer Science, vol. 7276, pp. 172–183. Springer (2012), http://dx.doi.org/10.1007/978-3-642-30850-5_16",
+    "Faro, S., Lecroq, T.: The exact online string matching problem: A review of the most recent results. ACM Comput. Surv. 45(2), 13 (2013), http://doi.acm.org/10.1145/2431211.243121220 Simone Faro",
+    "Finkel, A., Jantzen, M. (eds.): STACS 92, 9th Annual Symposium on Theoretical Aspects of Computer Science, Cachan, France, February 13-15, 1992, Proceedings, Lecture Notes in Computer Science, vol. 577. Springer (1992)",
+    "Franek, F., Jennings, C.G., Smyth, W.F.: A simple fast hybrid pattern-matching algorithm. In: Apostolico, A., Crochemore, M., Park, K. (eds.) Combinatorial Pattern Matching, 16th Annual Symposium, CPM 2005, Jeju Island, Korea, June 19-22, 2005, Proceedings. Lecture Notes in Computer Science, vol. 3537, pp. 288–297. Springer (2005), http://dx.doi.org/10.1007/11496656_25",
+    "Franek, F., Jennings, C.G., Smyth, W.F.: A simple fast hybrid pattern-matching algorithm. J. Discrete Algorithms 5(4), 682–695 (2007), http://dx.doi.org/10.1016/j.jda.2006.11.004",
+    "Fredriksson, K.: Faster string matching with super-alphabets. In: Laender, A.H.F., Oliveira, A.L. (eds.) String Processing and Information Retrieval, 9th International Symposium, SPIRE 2002, Lisbon, Portugal, September 11-13, 2002, Proceedings. Lecture Notes in Computer Science, vol. 2476, pp. 44–57. Springer (2002), http://dx.doi.org/10.1007/3-540-45735-6_5",
+    "Fredriksson, K.: Succinct backward-dawg-matching. ACM Journal of Experimental Algorithmics 13 (2008), http://doi.acm.org/10.1145/1412228.1455263",
+    "Fredriksson, K., Grabowski, S.: Practical and optimal string matching. In: Consens, M.P., Navarro, G. (eds.) String Processing and Information Retrieval, 12th International Conference, SPIRE 2005, Buenos Aires, Argentina, November 2-4, 2005, Proceedings. Lecture Notes in Computer Science, vol. 3772, pp. 376–387. Springer (2005), http://dx.doi.org/10.1007/11575832_42",
+    "Galil, Z., Giancarlo, R.: On the exact complexity of string matching: Upper bounds. SIAM J. Comput. 21(3), 407–437 (1992), http://dx.doi.org/10.1137/0221028",
+    "Galil, Z., Seiferas, J.I.: Time-space-optimal string matching. In: Proceedings of the 13th Annual ACM Symposium on Theory of Computing, May 11-13, 1981, Milwaukee, Wisconsin, USA. pp. 106–113. ACM (1981), http://doi.acm.org/10.1145/800076.802463",
+    "Galil, Z., Seiferas, J.I.: Time-space-optimal string matching. J. Comput. Syst. Sci. 26(3), 280–294 (1983), http://dx.doi.org/10.1016/0022-0000(83)90002-8",
+    "Hancart, C.: Analyse exacte et en moyenne d’algorithmes de recherche d’un motif dans un texte. Th`ese de doctorat, Universit ́e Paris 7 (1993)",
+    "He, L., Fang, B., Sui, J.: The wide window string matching algorithm. Theor. Comput. Sci. 332(1-3), 391–404 (2005), http://dx.doi.org/10.1016/j.tcs.2004.12.002",
+    "Holub, J., Durian, B.: Talk: Fast variants of bit parallel approach to suffix automata. In: The Second Haifa Annual International Stringology Research Workshop of the Israeli Science Foundation, http://www.cri.haifa.ac.il/events/2005/string/presentations/Holub.pdf (2005)",
+    "Horspool, R.N.: Practical fast searching in strings. Softw., Pract. Exper. 10(6), 501–506 (1980), http://dx.doi.org/10.1002/spe.4380100608",
+    "Huang, Y., Ping, L., Pan, X., Cai, G.: A fast exact pattern matching algorithm for biological sequences. In: Proceedings of the 2008 International Conference on BioMedical Engineering and Informatics, BMEI 2008, May 28-30, 2008, Sanya, Hainan, China - Volume 1. pp. 8–12. IEEE Computer Society (2008), http://dx.doi.org/10.1109/BMEI.2008.154",
+    "Hudaib, A., Al-Khalid, R., Suleiman, D., Itriq, M., Al-Anani, A.: A fast pattern matching algorithm with two sliding windows (tsw). Journal of Computer Science 4(5), 393–401 (2008) Exact Online String Matching Bibliography 21",
+    "Hudaib, A., Al-Khalid, R., Al-Anani, A., Itriq, M., Suleiman, D.: Four sliding windows pattern matching algorithm (fsw). Journal of Software Engineering and Applications 8, 154–165 (2015)",
+    "Hume, A., Sunday, D.: Fast string searching. In: Proceedings of the Summer 1991 USENIX Conference, Nashville, TE, USA, June 1991. pp. 221–234. USENIX Association (1991)",
+    "Hume, A., Sunday, D.: Fast string searching. Softw., Pract. Exper. 21(11), 1221–1248 (1991), http://dx.doi.org/10.1002/spe.4380211105",
+    "Itriq, M., Hudaib, A., Al-Anani, A., Al-Khalid, R., Suleiman, D.: Enhanced two sliding windows algorithm for pattern matching (etsw). Journal of American Science 8, 60–616 (2012)",
+    "Kalsi, P., Peltola, H., Tarhio, J.: Comparison of exact string matching algorithms for biological sequences. In: Elloumi, M., K ̈ung, J., Linial, M., Murphy, R.F., Schneider, K., Toma, C. (eds.) Bioinformatics Research and Development, Second International Conference, BIRD 2008, Vienna, Austria, July 7-9, 2008, Proceedings. Communications in Computer and Information Science, vol. 13, pp. 417–426. Springer (2008), http://dx.doi.org/10.1007/978-3-540-70600-7_31",
+    "Karp, R.M., Rabin, M.O.: Efficient randomized pattern-matching algorithms. IBM Journal of Research and Development 31(2), 249–260 (1987), http://dx.doi.org/10.1147/rd.312.0249",
+    "Knuth, D.E., Jr., J.H.M., Pratt, V.R.: Fast pattern matching in strings. SIAM J. Comput. 6(2), 323–350 (1977), http://dx.doi.org/10.1137/0206024",
+    "Kulekci, M.O.: A method to overcome computer word size limitation in bitparallel pattern matching. In: Hong, S., Nagamochi, H., Fukunaga, T. (eds.) Algorithms and Computation, 19th International Symposium, ISAAC 2008, Gold Coast, Australia, December 15-17, 2008. Proceedings. Lecture Notes in Computer Science, vol. 5369, pp. 496–506. Springer (2008), http://dx.doi.org/10.1007/978-3-540-92182-0_45",
+    "Kulekci, M.O.: Filter based fast matching of long patterns by using SIMD instructions. In: Holub, J., Zd ́arek, J. (eds.) Proceedings of the Prague Stringology Conference 2009, Prague, Czech Republic, August 31 - September 2, 2009. pp. 118–128. Prague Stringology Club, Department of Computer Science and Engineering, Faculty of Electrical Engineering, Czech Technical University in Prague(2009), http://www.stringology.org/event/2009/p11.html",
+    "Lecroq, T.: A variation on the boyer-moore algorithm. Theor. Comput. Sci. 92(1), 119–144 (1992), http://dx.doi.org/10.1016/0304-3975(92)90139-7",
+    "Lecroq, T.: Fast exact string matching algorithms. Inf. Process. Lett. 102(6), 229–235 (2007), http://dx.doi.org/10.1016/j.ipl.2007.01.002",
+    "Liu, C., Wang, Y., Liu, D., Li, D.: Two improved single pattern matching algorithms. In: 16th International Conference on Artificial Reality and Telexistence, ICAT 2006, Hangzhou, China, November 29 - December 1, 2006, Workshops Proceedings. pp. 419–422. IEEE Computer Society (2006), http://dx.doi.org/10.1109/ICAT.2006.134",
+    "Morris, Jr, J.H., Pratt, V.R.: A linear pattern-matching algorithm. Report 40, University of California, Berkeley (1970)",
+    "Navarro, G.: Nr-grep: a fast and flexible pattern-matching tool. Softw., Pract. Exper. 31(13), 1265–1312 (2001), http://dx.doi.org/10.1002/spe.411",
+    "Navarro, G., Raffinot, M.: A bit-parallel approach to suffix automata: Fast extended string matching. In: Farach-Colton [41], pp. 14–33, http://dx.doi.org/10.1007/BFb003077822 Simone Faro",
+    "Navarro, G., Raffinot, M.: Fast and flexible string matching by combining bitparallelism and suffix automata. ACM Journal of Experimental Algorithmics 5, 4 (2000), http://doi.acm.org/10.1145/351827.384246",
+    "Nebel, M.E.: Fast string matching by using probabilities: On an optimal mismatch variant of horspool’s algorithm. Theor. Comput. Sci. 359(1-3), 329–343 (2006), http://dx.doi.org/10.1016/j.tcs.2006.05.028",
+    "Peltola, H., Tarhio, J.: Alternative algorithms for bit-parallel string matching. In: Nascimento, M.A., de Moura, E.S., Oliveira, A.L. (eds.) String Processing and Information Retrieval, 10th International Symposium, SPIRE 2003, Manaus, Brazil, October 8-10, 2003, Proceedings. Lecture Notes in Computer Science, vol. 2857, pp. 80–94. Springer (2003), http://dx.doi.org/10.1007/978-3-540-39984-1_7",
+    "Peltola, H., Tarhio, J.: Variations of forward-sbndm. In: Holub, J., Zd ́arek, J. (eds.) Proceedings of the Prague Stringology Conference 2011, Prague, Czech Republic, August 29-31, 2011. pp. 3–14. Prague Stringology Club, Department of Theoretical Computer Science, Faculty of Information Technology, Czech Technical University in Prague (2011), http://www.stringology.org/event/2011/p02.html",
+    "Peltola, H., Tarhio, J.: String matching with lookahead. Discrete Applied Mathematics 163, 352–360 (2014), http://dx.doi.org/10.1016/j.dam.2013.10.034",
+    "Raita, T.: Tuning the boyer-moore-horspool string searching algorithm. Softw., Pract. Exper. 22(10), 879–884 (1992), http://dx.doi.org/10.1002/spe.4380221006",
+    "Sahli, M., Shibuya, T.: Max-shift BM and max-shift horspool: Practical fast exact string matching algorithms. JIP 20(2), 419–425 (2012), http://dx.doi.org/10.2197/ipsjjip.20.419",
+    "Senapati, K., Mal, S., Sahoo, G.: Rs-a fast pattern matching algorithm for biological sequences. International Journal of Engineering and Innovative Technology 1, 116–118 (2012)",
+    "Sheik, S.S., Aggarwal, S.K., Poddar, A., Balakrishnan, N., Sekar, K.: A FAST pattern matching algorithm. Journal of Chemical Information and Modeling 44(4), 1251–1256 (2004), http://dx.doi.org/10.1021/ci030463z",
+    "Simon, I.: String matching algorithms and automata. In: Karhum ̈aki, J., Maurer, H.A., Rozenberg, G. (eds.) Results and Trends in Theoretical Computer Science, Colloquium in Honor of Arto Salomaa, Graz, Austria, June 10-11, 1994, Proceedings. Lecture Notes in Computer Science, vol. 812, pp. 386–395. Springer (1994), http://dx.doi.org/10.1007/3-540-58131-6_61",
+    "Smith, P.D.: Experiments with a very fast substring search algorithm. Softw., Pract. Exper. 21(10), 1065–1074 (1991), http://dx.doi.org/10.1002/spe.4380211006",
+    "Suleiman, D., Hudaib, A., Al-Anani, A., R., A.K., Itriq, M.: Ers-a algorithm for pattern matching. Middle East Journal of Scientific Research 15, 1067–1075 (2013)",
+    "Suleiman, D., Itriq, M., Al-Anani, A., Al-Khalid, R., Hudaib, A.: Enhancing ersa algorithm for pattern matching (eers-a). Journal of Software Engineering and Applications 8, 143–153 (2015)",
+    "Sunday, D.: A very fast substring search algorithm. Commun. ACM 33(8), 132–142 (1990), http://doi.acm.org/10.1145/79173.79184",
+    "Sustik, M., Moore, J.: String searching over small alphabets. In: Technical Report TR-07-62. Department of Computer Sciences, University of Texas at Austin (2007) Exact Online String Matching Bibliography 23",
+    "Watson, B.W., Kourie, D.G., Cleophas, L.G.: Quantum leap pattern matching. In: Holub, J., Zd ́arek, J. (eds.) Proceedings of the Prague Stringology Conference 2015, Prague, Czech Republic, August 24-26, 2015. pp. 104–117. Department of Theoretical Computer Science, Faculty of Information Technology, Czech Technical University in Prague (2015), http://www.stringology.org/event/2015/p11.html",
+    "Yao, A.C.: The complexity of pattern matching for a random string. SIAM J. Comput. 8(3), 368–387 (1979), http://dx.doi.org/10.1137/0208029",
+    "Zhang, G., Zhu, E., Mao, L., Yin, M.: A bit-parallel exact string matching algorithm for small alphabet. In: Deng, X., Hopcroft, J.E., Xue, J. (eds.) Frontiers in Algorithmics, Third International Workshop, FAW 2009, Hefei, China, June 20-23, 2009. Proceedings. Lecture Notes in Computer Science, vol. 5598, pp. 336–345. Springer (2009), http://dx.doi.org/10.1007/978-3-642-02270-8_34",
+    "Zhu, R.F., Takaoka, T.: On improving the average case of the Boyer-Moore string matching algorithm. J. Inform. Process. 10(3), 173–177 (1987)"
+  ]
+}

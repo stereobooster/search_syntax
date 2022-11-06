@@ -1,0 +1,316 @@
+
+digraph algorithms {
+    size="7,8";
+    node [fontsize=24, shape=plaintext];
+
+    start -> 1970 -> 1977 -> 1980 -> 1981 -> 1986 -> 1987 -> 1989 -> 1990 -> 1991 -> 1992 -> 1993 -> 1994 -> 1998 -> 1999 -> 2000 -> 2002 -> 2003 -> 2004 -> 2005 -> 2006 -> 2007 -> 2008 -> 2009 -> 2010 -> 2011 -> 2012 -> 2013 -> 2014 -> 2015 -> 2016;
+
+    node [fontsize=20, shape=box, style=filled];
+    { rank=same; start "BF" "DFA"; }
+    { rank=same; 1970 "MP"; }
+    { rank=same; 1977 "KMP" "BM"; }
+    { rank=same; 1980 "HOR"; }
+    { rank=same; 1981 "GS"; }
+    { rank=same; 1986 "AG"; }
+    { rank=same; 1987 "KR" "ZT"; }
+    { rank=same; 1989 "SO" "SA"; }
+    { rank=same; 1990 "QS" "OM" "MS"; }
+    { rank=same; 1991 "AC" "TW" "TunBM" "COL" "SMITH"; }
+    { rank=same; 1992 "GG" "RAITA" "SMOA" "TBM" "RF"; }
+    { rank=same; 1993 "NSN"; }
+    { rank=same; 1994 "RCOL" "SIM" "TRF" "FDM" "BDM"; }
+    { rank=same; 1998 "SKIP" "ASKIP" "KMPS" "BNDM"; }
+    { rank=same; 1999 "BR" "BOM"; }
+    { rank=same; 2000 "DFDM" "BNDML"; }
+    { rank=same; 2002 "SAS"; }
+    { rank=same; 2003 "AKC" "FS" "SBNDM" "TNDM" "LBNDM" "SVM"; }
+    { rank=same; 2004 "FFS" "BFS" "TS" "SSABS"; }
+    { rank=same; 2005 "WW" "LDM" "BNDM2" "SBNDM2" "BNDMBMH" "BMHBNDM" "FNDM" "BWW" "AOSO" "FAOSO"; }
+    { rank=same; 2006 "TVSBS" "PBMH" "ILDM1" "ILDM2"; }
+    { rank=same; 2007 "FJS" "2BLOCK" "HASHq" "BMHq"; }
+    { rank=same; 2008 "TSW" "EBOM" "FBOM" "SBDM" "FBNDM" "FSBNDM" "BLIM"; }
+    { rank=same; 2009 "GRASPm" "SEBOM" "SFBOM" "BNDMq" "SBNDMq" "UFNDMq" "SABP" "PSS" "SSEF"; }
+    { rank=same; 2010 "BBM" "BFS1" "BFFS" "BXS" "BQL" "QF" "BP2WW" "BPWW2" "KSA" "KBNDM" "PB" "PBR"; }
+    { rank=same; 2011 "FSBNDMqf" "SSECP"; }
+    { rank=same; 2012 "FSw" "TVSBSw" "MSBM" "MSH" "ETSW" "MHASHq" "RSA" "BSDM" "SBNDMw" "FSBNDMw"; }
+    { rank=same; 2013 "ERSA" "IOM" "WOM" "JOM" "EPSM"; }
+    { rank=same; 2014 "TSA" "TSO" "TSAq" "TSOq"; }
+    { rank=same; 2015 "SSM" "QLQS" "EERSA" "FSW"; }
+    { rank=same; 2016 "SKIPq" "BSDMqx" "BSDMqxw"; }
+
+
+    "BF" [color=lightpink, label="Brute-Force"];
+    "MP" [color=lightpink, label="Morris-Pratt"];
+    "KMP" [color=lightpink, label="Knuth-Morris-Pratt"];
+    "BM" [color=lightpink, label="Boyer-Moore"];
+    "HOR" [color=lightpink, label="Horspool"];
+    "GS" [color=lightpink, label="Galil-Seiferas"];
+    "AG" [color=lightpink, label="Apostolico-Giancarlo"];
+    "KR" [color=lightpink, label="Karp-Rabin"];
+    "ZT" [color=lightpink, label="Zhu-Takaoka"];
+    "QS" [color=lightpink, label="Quick-Search "];
+    "OM" [color=lightpink, label="Optimal-Mismatch"];
+    "MS" [color=lightpink, label="Maximal-Shift"];
+    "AC" [color=lightpink, label="Apostolico-Crochemore"];
+    "TW" [color=lightpink, label="Two-Way"];
+    "TunBM" [color=lightpink, label="Tuned-Boyer-Moore"];
+    "COL" [color=lightpink, label="Colussi"];
+    "SMITH" [color=lightpink, label="Smith"];
+    "GG" [color=lightpink, label="Galil-Giancarlo"];
+    "RAITA" [color=lightpink, label="Raita"];
+    "SMOA" [color=lightpink, label="String-Matching on Ordered Alphabet"];
+    "TBM" [color=lightpink, label="Turbo-Boyer-Moore"];
+    "NSN" [color=lightpink, label="Not-So-Naive"];
+    "RCOL" [color=lightpink, label="Reverse-Colussi"];
+    "SKIP" [color=lightpink, label="Skip-Search"];
+    "ASKIP" [color=lightpink, label="Alpha-Skip-Search"];
+    "KMPS" [color=lightpink, label="Knuth-Morris-Pratt Skip-Search"];
+    "BR" [color=lightpink, label="Berry-Ravindran"];
+    "AKC" [color=lightpink, label="Ahmed-Kaykobad-Chowdhury"];
+    "FS" [color=lightpink, label="Fast-Search"];
+    "FFS" [color=lightpink, label="Forward-Fast-Search"];
+    "BFS" [color=lightpink, label="Backward-Fast-Search"];
+    "TS" [color=lightpink, label="Tailed-Substring"];
+    "SSABS" [color=lightpink, label="Sheik-Sumit-Anindya-Balakrishnan-Sekar"];
+    "TVSBS" [color=lightpink, label="Thathoo-Virmani-Sai-Balakrishnan-Sekar "];
+    "PBMH" [color=lightpink, label="Boyer-Moore-Horspool using Probabilities "];
+    "FJS" [color=lightpink, label="Franek-Jennings-Smyth"];
+    "2BLOCK" [color=lightpink, label="2-Block Boyer-Moore"];
+    "HASHq" [color=lightpink, label="Wu-Manber for Single Pattern Matching"];
+    "BMHq" [color=lightpink, label="Boyer-Moore-Horspool with q-grams"];
+    "TSW" [color=lightpink, label="Two Sliding Windows"];
+    "GRASPm" [color=lightpink, label="Genomic Rapid Algo for String Pm"];
+    "BBM" [color=lightpink, label="Bounded Boyer-Moore"];
+    "BFS1" [color=lightpink, label="Bounded Fast-Search"];
+    "BFFS" [color=lightpink, label="Bounded Forward-Fast-Search"];
+    "FSw" [color=lightpink, label="Fast-Search using Multiple Windows"];
+    "TVSBSw" [color=lightpink, label="TVSBS using Multiple Windows "];
+    "MSBM" [color=lightpink, label="Max Shift Boyer-Moore"];
+    "MSH" [color=lightpink, label="Max Shift Horspool"];
+    "ETSW" [color=lightpink, label="Enhanced Two Sliding Windows"];
+    "MHASHq" [color=lightpink, label="HASHq using Multiple Hashing Functions"];
+    "RSA" [color=lightpink, label="Enhanced Berry-Ravindran"];
+    "ERSA" [color=lightpink, label="Enhanced RS-A"];
+    "IOM" [color=lightpink, label="Improved Occurrence Heuristics"];
+    "WOM" [color=lightpink, label="Worst Occurrence Heuristics"];
+    "JOM" [color=lightpink, label="Jumping Occurrence Heuristics"];
+    "SSM" [color=lightpink, label="Simple String Matching"];
+    "QLQS" [color=lightpink, label="Quantum Leap Quick-Search"];
+    "EERSA" [color=lightpink, label="Enhanced ERS-A"];
+    "FSW" [color=lightpink, label="Four Sliding Windows"];
+    "SKIPq" [color=lightpink, label="Skip-Search using q-grams"];
+    "DFA" [color=lightblue, label="Deterministic-Finite-Automaton"];
+    "RF" [color=lightblue, label="Reverse-Factor"];
+    "SIM" [color=lightblue, label="Simon"];
+    "TRF" [color=lightblue, label="Turbo-Reverse-Factor"];
+    "FDM" [color=lightblue, label="Forward-DAWG-Matching"];
+    "BDM" [color=lightblue, label="Backward-DAWG-Matching"];
+    "BOM" [color=lightblue, label="Backward-Oracle-Matching"];
+    "DFDM" [color=lightblue, label="Double Forward DAWG Matching"];
+    "WW" [color=lightblue, label="Wide Window"];
+    "LDM" [color=lightblue, label="Linear DAWG Matching"];
+    "ILDM1" [color=lightblue, label="Improved Linear DAWG Matching"];
+    "ILDM2" [color=lightblue, label="Improved Linear DAWG Matching 2"];
+    "EBOM" [color=lightblue, label="Extended Backward Oracle Matching"];
+    "FBOM" [color=lightblue, label="Forward Backward Oracle Matching"];
+    "SBDM" [color=lightblue, label="Succint Backward DAWG Matching"];
+    "SEBOM" [color=lightblue, label="Simplified Extended Backward Oracle Matching"];
+    "SFBOM" [color=lightblue, label="Simplified Forward Backward Oracle Matching"];
+    "BSDM" [color=lightblue, label="Backward SNR DAWG Matching"];
+    "BSDMqx" [color=lightblue, label="BSDM using q-grams and shift-xor"];
+    "BSDMqxw" [color=lightblue, label="BSDMqx using multiple windows"];
+    "SO" [color=lavender, label="Shift-Or"];
+    "SA" [color=lavender, label="Shift-And"];
+    "BNDM" [color=lavender, label="Backward-Nondeterministic-DAWG-Matching"];
+    "BNDML" [color=lavender, label="BNDM for Long patterns"];
+    "SBNDM" [color=lavender, label="Simplified BNDM"];
+    "TNDM" [color=lavender, label="Two-Way Nondeterministic DAWG Matching"];
+    "LBNDM" [color=lavender, label="Long patterns BNDM"];
+    "SVM" [color=lavender, label="Shift Vector Matching"];
+    "BNDM2" [color=lavender, label="BNDM with loop-unrolling"];
+    "SBNDM2" [color=lavender, label="Simplified BNDM with loop-unrolling"];
+    "BNDMBMH" [color=lavender, label="BNDM with Horspool Shift"];
+    "BMHBNDM" [color=lavender, label="Horspool with BNDM test"];
+    "FNDM" [color=lavender, label="Forward Nondeterministic DAWG Matching"];
+    "BWW" [color=lavender, label="Bit parallel Wide Window"];
+    "AOSO" [color=lavender, label="Average Optimal Shift-Or"];
+    "FAOSO" [color=lavender, label="Fast Average Optimal Shift-Or"];
+    "FBNDM" [color=lavender, label="Forward BNDM"];
+    "FSBNDM" [color=lavender, label="Forward Simplified BNDM"];
+    "BLIM" [color=lavender, label="Bit-Parallel Length Invariant Matcher"];
+    "BNDMq" [color=lavender, label="BNDM with q-grams"];
+    "SBNDMq" [color=lavender, label="Simplified BNDM with q-grams "];
+    "UFNDMq" [color=lavender, label="FNDM with q-grams"];
+    "SABP" [color=lavender, label="Small Alphabet Bit-Parallel"];
+    "BXS" [color=lavender, label="BNDM with Extended Shifts"];
+    "BQL" [color=lavender, label="BNDMq Long"];
+    "QF" [color=lavender, label="Q-Gram Filtering"];
+    "BP2WW" [color=lavender, label="Bit-Parallel2 Wide-Window"];
+    "BPWW2" [color=lavender, label="Bit-Parallel Wide-Window2"];
+    "KSA" [color=lavender, label="Factorized Shift-And"];
+    "KBNDM" [color=lavender, label="Factorized BNDM"];
+    "FSBNDMqf" [color=lavender, label="Forward SBNDM using q-grams and Lookahead"];
+    "SBNDMw" [color=lavender, label="SBNDM using Multiple Windows"];
+    "FSBNDMw" [color=lavender, label="Forward SBNDM using Multiple Windows"];
+    "TSA" [color=lavender, label="Improved Two-Way Shift-And"];
+    "TSO" [color=lavender, label="Improved Two-Way Shift-Or"];
+    "TSAq" [color=lavender, label="Two-Way Shift-And using q-grams"];
+    "TSOq" [color=lavender, label="Two-Way Shift-Or using q-grams"];
+    "SAS" [color=olivedrab1, label="Super Alphabet Simulation"];
+    "PSS" [color=olivedrab1, label="Packed String Search"];
+    "SSEF" [color=olivedrab1, label="Streaming SIMD Extensions Filter"];
+    "PB" [color=olivedrab1, label="Packed Belazzougui"];
+    "PBR" [color=olivedrab1, label="Packed Belazzougui-Raffinot"];
+    "SSECP" [color=olivedrab1, label="Crochemore-Perrin algorithm using SSE instructions"];
+    "EPSM" [color=olivedrab1, label="Exact Packed String Matching"];
+
+
+    "BF" -> "MP";
+    "MP" -> "KMP";
+    "BF" -> "BM";
+    "BM" -> "HOR";
+
+    "BM" -> "AG";
+
+    "HOR" -> "ZT";
+    "HOR" -> "QS";
+    "QS" -> "OM";
+    "QS" -> "MS";
+    "KMP" -> "AC";
+
+    "HOR" -> "TunBM";
+    "KMP" -> "COL";
+    "HOR" -> "SMITH";
+    "QS" -> "SMITH";
+    "COL" -> "GG";
+    "HOR" -> "RAITA";
+
+    "BM" -> "TBM";
+    "BF" -> "NSN";
+    "COL" -> "RCOL";
+    "BM" -> "RCOL";
+
+    "SKIP" -> "ASKIP";
+    "SKIP" -> "KMPS";
+    "MP" -> "KMPS";
+    "KMP" -> "KMPS";
+    "QS" -> "BR";
+    "ZT" -> "BR";
+    "AG" -> "AKC";
+    "BM" -> "FS";
+    "FS" -> "FFS";
+    "QS" -> "FFS";
+    "BM" -> "BFS";
+    "HOR" -> "BFS";
+    "BF" -> "TS";
+    "HOR" -> "TS";
+    "QS" -> "SSABS";
+    "RAITA" -> "SSABS";
+    "SSABS" -> "TVSBS";
+    "BR" -> "TVSBS";
+    "OM" -> "PBMH";
+    "HOR" -> "PBMH";
+    "KMP" -> "FJS";
+    "QS" -> "FJS";
+    "BM" -> "2BLOCK";
+    "HOR" -> "HASHq";
+    "HOR" -> "BMHq";
+    "QS" -> "TSW";
+    "HOR" -> "GRASPm";
+    "BM" -> "BBM";
+    "FS" -> "BFS1";
+    "FFS" -> "BFFS";
+    "FS" -> "FSw";
+    "TVSBS" -> "TVSBSw";
+    "BM" -> "MSBM";
+    "HOR" -> "MSBM";
+    "BM" -> "MSH";
+    "HOR" -> "MSH";
+    "TSW" -> "ETSW";
+    "BR" -> "ETSW";
+    "HASHq" -> "MHASHq";
+    "BR" -> "RSA";
+    "RSA" -> "ERSA";
+    "TSW" -> "ERSA";
+    "HOR" -> "IOM";
+    "HOR" -> "WOM";
+    "BR" -> "JOM";
+    "HOR" -> "SSM";
+    "QS" -> "QLQS";
+    "ERSA" -> "EERSA";
+    "ETSW" -> "EERSA";
+    "ERSA" -> "FSW";
+    "SKIP" -> "SKIPq";
+    "HASHq" -> "SKIPq";
+
+    "DFA" -> "RF";
+    "BM" -> "RF";
+    "DFA" -> "SIM";
+    "RF" -> "TRF";
+
+    "RF" -> "BDM";
+    "RF" -> "BOM";
+    "FDM" -> "DFDM";
+    "FDM" -> "WW";
+    "RF" -> "WW";
+    "BDM" -> "LDM";
+    "DFA" -> "LDM";
+    "LDM" -> "ILDM1";
+    "LDM" -> "ILDM2";
+    "BOM" -> "EBOM";
+    "EBOM" -> "FBOM";
+    "QS" -> "FBOM";
+    "BDM" -> "SBDM";
+    "EBOM" -> "SEBOM";
+    "FBOM" -> "SFBOM";
+    "BDM" -> "BSDM";
+    "BSDM" -> "BSDMqx";
+    "BSDMqx" -> "BSDMqxw";
+    "DFA" -> "SO";
+    "DFA" -> "SA";
+    "BDM" -> "BNDM";
+    "BNDM" -> "BNDML";
+    "BNDM" -> "SBNDM";
+    "BNDM" -> "TNDM";
+    "BNDM" -> "LBNDM";
+    "BM" -> "SVM";
+    "BNDM" -> "BNDM2";
+    "SBNDM" -> "SBNDM2";
+    "BNDM" -> "BNDMBMH";
+    "HOR" -> "BNDMBMH";
+    "BNDM" -> "BMHBNDM";
+    "HOR" -> "BMHBNDM";
+    "FDM" -> "FNDM";
+    "WW" -> "BWW";
+    "SO" -> "AOSO";
+    "AOSO" -> "FAOSO";
+    "FBOM" -> "FBNDM";
+    "SBNDM" -> "FSBNDM";
+    "FBNDM" -> "FSBNDM";
+
+    "BNDM" -> "BNDMq";
+    "SBNDM" -> "SBNDMq";
+    "FNDM" -> "UFNDMq";
+
+    "BNDM" -> "BXS";
+    "BNDM" -> "BQL";
+
+    "WW" -> "BP2WW";
+    "WW" -> "BPWW2";
+    "DFA" -> "KSA";
+    "BNDM" -> "KBNDM";
+    "FSBNDM" -> "FSBNDMqf";
+    "SBNDM" -> "SBNDMw";
+    "FSBNDM" -> "FSBNDMw";
+    "SA" -> "TSA";
+    "SO" -> "TSO";
+    "SA" -> "TSAq";
+    "SO" -> "TSOq";
+
+    "KMP" -> "PSS";
+    "SKIP" -> "SSEF";
+
+
+    "TW" -> "SSECP";
+    "SSEF" -> "EPSM";
+}
