@@ -2,15 +2,35 @@
 
 ## Reading
 
+|             | Online | Offline |
+| ----------- | ------ | ------- |
+| Exact       | ✅     | ❓      |
+| Approximate | ❓     | ❓      |
+
+Exact online string matching is covered in depth in:
+
 - [Exact Online String Matching Bibliography](https://arxiv.org/pdf/1605.05067.pdf)
 - [Exact string matching algorithms](https://www-igm.univ-mlv.fr/~lecroq/string/)
 - [The String Matching Algorithms Research Tool](https://www.dmi.unict.it/faro/papers/conference/faro47.pdf)
+- [The Exact Online String Matching Problem:a Review of the Most Recent Results](https://www-igm.univ-mlv.fr/~lecroq/articles/acmsurv2013.pdf)
 
-Gonzalo Navarro & Mathieu Raffinot, 2002, Dependency on the size of the alphabet and length of strings:
+**TODO**: find source for other 3
+
+## Graphs
+
+### Dependency on the size of the alphabet and length of strings
+
+Gonzalo Navarro & Mathieu Raffinot, 2002:
 
 ![](./exact-string-matching/1.png)
 
-## Algorithms
+### Exact online string matching bibliography
+
+![](exact-string-matching/graph.svg)
+
+## Algorithms bibliography
+
+## Algorithms classification
 
 1. Type
    - Exact
@@ -25,8 +45,8 @@ Gonzalo Navarro & Mathieu Raffinot, 2002, Dependency on the size of the alphabet
    - Exhaustive algorithms guarantee to find all occurrences of the query in the target
    - Heuristic algorithms may not find all similar data. In heuristics, a reduction of the search time is achieved by evaluating only the statistically interesting patterns
 5. Global/Local measure of similarity
-   - Global takes into account the similarity of all target data to the query
-   - Local takes into account the similarity between some part of the target and the query
+   - Global - takes into account the similarity of all target data to the query
+   - Local - takes into account the similarity between some part of the target and the query
 6. For approximate matching
    - Type of measure (edit distance/similarity)
    - Ranking function
@@ -35,18 +55,27 @@ Gonzalo Navarro & Mathieu Raffinot, 2002, Dependency on the size of the alphabet
    - characters comparison
    - automata
    - bit-parallelism
+   - packed string matching
+   - ...
 8. Depends on size of
    - alphabet
    - text
    - query
 9. Relationship to other algorithms
-   - Combination of 
-   - Modification of / Refinement of / Variant of / Improvement of / Simplification of
+   - Combination of / Modification of / Refinement of / Variant of / Improvement of / Simplification of
 10. Year
 
 **Side note**: complexity comparison
+
 - https://www.bigocheatsheet.com/
 - https://www.wolframalpha.com/widgets/view.jsp?id=f1988323c9b98e870845564a17bfdf78
 - https://www.sciencedirect.com/science/article/pii/S0022000074800085
 
-![](exact-string-matching/graph.svg)
+## WIP
+
+[Approximate String Matching using Backtracking over Suffix Arrays](https://www.cs.umd.edu/sites/default/files/scholarly_papers/ghodsi_1.pdf):
+
+|             | Online                                            | Offline                              |
+| ----------- | ------------------------------------------------- | ------------------------------------ |
+| Exact       | KMP O(n+m)                                        | Suffix Tree O(m)                     |
+| Approximate | Dynamic Programming O(n·m), Landau+Vishkin O(k·n) | Myers, Navarro+Baeza-Yates, Ukkonnen |
