@@ -28,8 +28,6 @@ Gonzalo Navarro & Mathieu Raffinot, 2002:
 
 ![](exact-string-matching/graph.svg)
 
-## Algorithms bibliography
-
 ## Algorithms classification
 
 1. Type
