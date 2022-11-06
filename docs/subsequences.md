@@ -2,6 +2,10 @@
 
 # Subsequences
 
+## Reading
+
+- [Algorithms for computing variants of the longest common subsequence problem](https://www.sciencedirect.com/science/article/pii/S030439750800039X?ref=pdf_download&fr=RR-2&rr=765d0f22bc2e451c)
+
 ## Types
 
 ### Skip-grams

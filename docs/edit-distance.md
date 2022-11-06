@@ -85,10 +85,14 @@ Check out [wikipedia page](https://en.wikipedia.org/wiki/Jaro%E2%80%93Winkler_di
 
 But Jaro similarity is not direct extension of LCS similarity, otherwise in the absence of transposition they would return the same value:
 
-- `lcs_sim_norm(test, east)  = 3/4`
+- `lcs_sim_norm(test, east) = 3/4`
 - `jaro_sim_norm(test, east) = 5/6`
-- `lev_sim_norm(test, east)  = 1/2`
+- `lev_sim_norm(test, east) = 1/2`
 
 ## Jaro–Winkler similarity
 
 Jaro–Winkler similarity uses a prefix scale which gives more favorable ratings to strings that match from the beginning for a set prefix of given length
+
+## Reading
+
+- [A Comparison of String Metrics for Matching Names and Records](https://www.cs.cmu.edu/afs/cs/Web/People/wcohen/postscript/kdd-2003-match-ws.pdf)

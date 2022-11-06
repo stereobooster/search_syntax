@@ -7,12 +7,17 @@
 | Exact       | ✅     | ❓      |
 | Approximate | ❓     | ❓      |
 
-Exact online string matching is covered in depth in:
+**Exact online** string matching is covered in depth in:
 
 - [Exact Online String Matching Bibliography](https://arxiv.org/pdf/1605.05067.pdf)
 - [Exact string matching algorithms](https://www-igm.univ-mlv.fr/~lecroq/string/)
 - [The String Matching Algorithms Research Tool](https://www.dmi.unict.it/faro/papers/conference/faro47.pdf)
 - [The Exact Online String Matching Problem:a Review of the Most Recent Results](https://www-igm.univ-mlv.fr/~lecroq/articles/acmsurv2013.pdf)
+
+**Approximate online** string matching:
+
+- [A guided tour to approximate string matching](https://users.dcc.uchile.cl/~gnavarro/ps/acmcs01.1.pdf)
+  - https://www.connectedpapers.com/main/e001232a2876989f52a7b4ac12bd9ed550d41240/A-guided-tour-to-approximate-string-matching/graph
 
 **TODO**: find source for other 3
 
