@@ -219,3 +219,11 @@ Option 2:
 ## Similar languages
 
 - [REST Query Language](https://github.com/jirutka/rsql-parser)
+
+## Other ideas
+
+- Use `is:something` instead of `something:true`
+- Allow unquoted params e.g. 
+  - `search param:two words` is treated as `search param:"two words"`
+  - `param:two words param1:something` is treated as `param:"two words" param1:something`
+  - but what to do with `param:two words search`?
